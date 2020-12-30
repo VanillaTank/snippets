@@ -20,7 +20,7 @@
     //Переворачивающиеся карточки(для телефонов)
     const cards = document.querySelectorAll('.bl-1__card');
     cards.forEach(item =>{
-        item.addEventListener('touchend', (evt) =>{
+        item.addEventListener('click', (evt) =>{
             let currentCard = evt.target.parentNode;
             if(evt.target.className == "bl-1__front") {
                 currentCard.childNodes[1].style.transform = 'rotateY(180deg)';
