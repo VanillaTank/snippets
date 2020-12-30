@@ -1,0 +1,246 @@
+html {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+h1{
+    margin: 15px 0;
+    font-size: 24px;
+}  
+
+body {
+    font-family: 'SFProDisplay-Regular', sans-serif;
+    color: #000000;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 400;
+
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.title {
+    text-align: center;
+    font-size: 22px;
+    display: flex;
+    white-space: nowrap;
+    align-items: center;
+    position: relative;
+    top: -11px;
+}
+
+.title::before,
+.title::after {
+    content: "";
+    width: 100%;
+    border-bottom: 1px solid #000;
+}
+.title::before{
+    margin-right: 10px;
+}
+.title::after{
+    margin-left: 10px;
+}
+
+section {
+    margin-bottom: 50px;
+    border: 1px solid #000000;
+    border-top: none;
+}
+.how-title {
+    background-color: rgb(249 255 177);
+}
+/* Ползающее подчеркивание */
+.flexContainer {
+    display: flex;
+    min-width: 800px;
+    background-color: rgb(217, 245, 117);
+    padding: 15px;
+    justify-content: space-around;
+}
+.flexContainer__link {
+    position: relative;
+}
+.flexContainer__link::after{
+    content: "";
+    width: 0;
+    height: 3px;
+    left: auto;
+    position: absolute;
+    background-color: #2fa10c;
+    bottom: -3px;
+    transition: all 0.3s;
+    right: 0;
+}
+.flexContainer__link:hover{
+    color: rgb(139, 8, 8);
+}
+.flexContainer__link:hover::after {
+    width: 100%;
+    right: auto;
+    left: 0 ;
+}
+.example{
+    margin: 10px 0 30px;
+}
+.description {
+    margin: 20px;
+}
+.description h4 {
+    text-align: center;
+}
+.description span {
+    display: block;
+    margin-top: 10px;
+}
+/* Цветное выделение текста */
+.text-selection {
+    padding: 0 20px;
+}
+.text-selection::selection {
+    background-color: red;
+    color: #fff;
+}
+/* Стилизация инпута */
+.inputs .example{
+    display: flex;
+}
+.conteinerDescription {
+    display: flex;
+    justify-content: space-around;
+}
+.input_style1{
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    background-color: #F0F0F4;
+    outline: none;
+    margin-left: 20px;
+}
+.input_style2 {
+    border: none;
+    padding: 10px 20px;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 2px solid #2fa10c;
+    margin-left: 434px;
+}
+/* Анимация формы */
+.shakeBlock{
+    width: 500px;
+    margin: 0 auto;
+    height: 300px;
+    background-color: #F0F0F4;
+    border: 1px solid #2fa10c;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+.containerAnim-btn {
+    font-size: 16px;
+    background-color: #2fa10c;
+    padding: 10px 20px;
+    border: none;
+    margin-bottom: 20px;
+    outline-color:#fff;
+}
+.animForm{
+    display: flex;
+    justify-content: space-between;
+
+}
+.animForm div {
+    width: 560px;
+    border: 1px solid #2fa10c;
+}
+
+.animForm-pre{
+    font-size: 16px;
+    padding: 0 10px;
+    overflow: auto;
+}
+@keyframes shake {
+    0%, 100% {transform: translateX(0);}
+    10%, 30%, 50%, 70%, 90% {transform: translateX(-10px);}
+    20%, 40%, 60%, 80% {transform: translateX(10px);}
+}
+.animForm-shake{
+    animation-name: shake;
+    animation-duration: .7s;
+}
+@keyframes falling {
+    0% {transform: translateY(-200px);}
+    70% {transform: translateY(20px);}
+    90% {transform: translateY(-35px);}
+    100%{transform: translateY(0);}
+}
+.animForm-falling{
+    animation-name: falling;
+    animation-duration: .6s;
+}
+.comments{
+    max-width: 660px;
+    margin: 20px auto;
+}
+/* Поворачивающиеся карточки */
+.bl-1__container{
+    padding: 30px 0;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bl-1__card{
+    width: 300px;
+    height: 300px;
+    position: relative;
+    perspective: 1000px;
+}
+.bl-1__front, .bl-1__back{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    color: #fff;
+    transition: 1s;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+.bl-1__front{
+    background-color: #2fa10c;
+}
+.bl-1__back{
+    background-color: rgb(196, 233, 61);
+    transform: rotateY(180deg);
+}
+.bl-1__card:hover .bl-1__front {transform: rotateY(180deg);}
+.bl-1__card:hover .bl-1__back {transform: rotateY(360deg);}
+.bl-1__descr {
+    display: flex;
+    justify-content: space-between;
+}
+.bl-1__descr pre {
+    max-width: 540px;
+}
