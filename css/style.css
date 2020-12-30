@@ -239,8 +239,8 @@ section {
     background-color: rgb(196, 233, 61);
     transform: rotateY(180deg);
 }
-/* .bl-1__card:hover .bl-1__front {transform: rotateY(180deg);}
-.bl-1__card:hover .bl-1__back {transform: rotateY(360deg);} */
+.bl-1__card:hover .bl-1__front {transform: rotateY(180deg);}
+.bl-1__card:hover .bl-1__back {transform: rotateY(360deg);}
 .bl-1__descr {
     display: flex;
     justify-content: space-between;
