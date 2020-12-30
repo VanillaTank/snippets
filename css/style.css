@@ -279,9 +279,8 @@ section {
     100% {border-color: #2fa10c;}
 }
 @keyframes printed-text {
-    from{
-        width: 0;
-    }
+    0% {width: 0;}
+    100% {width: 21ch;}
 }
 .bl-2__descr {
     border: 1px solid #2fa10c
