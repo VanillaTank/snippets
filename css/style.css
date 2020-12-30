@@ -205,7 +205,7 @@ section {
     padding: 30px 0;
     min-height: 300px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 .bl-1__card{
@@ -245,6 +245,12 @@ section {
     display: flex;
     justify-content: space-between;
 }
-.bl-1__descr pre {
-    max-width: 540px;
+.bl-1__desck-inner {
+    border: 1px solid #2fa10c
+}
+.bl-1__desck-inner pre {
+    font-size: 16px;
+    overflow: auto;
+    padding: 0 10px;
+    max-width: 674px;
 }
