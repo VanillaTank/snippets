@@ -255,3 +255,41 @@ section {
     padding: 0 10px;
     max-width: 674px;
 }
+/* Имитация набора текста */
+.bl-2__container{
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bl-2__text{
+    width: 21ch;
+    font-family: monospace;
+    font-size: 32px;
+    line-height: 32px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #2fa10c;
+    animation: flashing-border 0.85s step-end infinite,
+               printed-text 5.95s steps(21)
+}
+@keyframes flashing-border {
+    0% {border-color: #2fa10c;}
+    50% {border-color: transparent;}
+    100% {border-color: #2fa10c;}
+}
+@keyframes printed-text {
+    from{
+        width: 0;
+    }
+}
+.bl-2__descr {
+    border: 1px solid #2fa10c
+}
+.bl-2__descr-wrap{
+    display: flex;
+}
+.bl-2__descr-wrap pre {
+    max-width: 590px;
+    padding: 0 10px;
+}

@@ -22,6 +22,45 @@
         </section> -->
 
     <section class="idia">
+        <h3 class='title'>Имитация набора текста</h3>
+        <div class="example">
+            <div class="bl-2__container">
+                <p class="bl-2__text">Добавим немного магии</p>
+            </div>
+        </div>
+        <div class="description bl-2__descr">
+            <h4 class="how-title">CSS</h4>
+            <div class="bl-2__descr-wrap">
+              <pre>
+.bl-2__text{
+width: 21ch;
+font-family: monospace;
+font-size: 32px;
+line-height: 32px;
+white-space: nowrap;
+overflow: hidden;
+border-right: 3px solid #2fa10c;
+animation: flashing-border 0.85s step-end infinite,
+           printed-text 5.95s steps(21)
+}</pre>
+            <pre>
+@keyframes flashing-border {
+    0% {border-color: #2fa10c;}
+    50% {border-color: transparent;}
+    100% {border-color: #2fa10c;}
+}
+@keyframes printed-text {
+        from{width: 0;}
+}
+
+Расчет времени: 
+0.85 * кол-во символов / 3 тика анимации
+</pre>  
+            </div>  
+        </div>
+    </section>
+
+    <section class="idia">
         <h3 class='title'>Переворачивающиеся карточки</h3>
         <div class="example">
             <div class="bl-1__container">
@@ -72,6 +111,10 @@
                 <div class="bl-1__desck-inner">
                     <h4 class="how-title">JS</h4>
                     <pre>
+Если клик и ховер на одном устройстве - лагает,
+поэтому нужна проверка и разведение по устройствам.
+Интересно, как поведет себя на маке.      
+
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     const cards = document.querySelectorAll('.bl-1__card');
     cards.forEach(item => {
