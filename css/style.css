@@ -227,6 +227,10 @@ section {
     transition: 1s;
     backface-visibility: hidden;
     border-radius: 10px;
+     -webkit-perspective: 0;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0,0,0);
+    visibility:visible;
 }
 .bl-1__front{
     background-color: #2fa10c;
