@@ -120,11 +120,11 @@ animation: flashing-border 0.85s step-end infinite,
 помнить, что можно дать абсолют только фронту или только бэку.   
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    const cards = document.querySelectorAll('.bl-1__card');
+    const cards = document.querySelectorAll('.card');
     cards.forEach(item => {
         item.addEventListener('click', (evt) => {
             let currentCard = evt.target.parentNode;
-            if (evt.target.className == "bl-1__front") {
+            if (evt.target.className == "front") {
                 currentCard.childNodes[1].style.transform = 'rotateY(180deg)';
                 currentCard.childNodes[3].style.transform = 'rotateY(360deg)';
             } else {
