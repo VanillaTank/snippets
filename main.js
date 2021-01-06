@@ -34,4 +34,83 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     })
 }
 
+//Иммитация набора текста на JS
+const text = [
+    'Привет мир\n',
+    'Герда - лучшая чавчарка \nна свете\n',
+    'Собачки спасут мир'
+];
+const outText = document.querySelector('.bl-3__out-text');
+
+function typeText(){
+    let line = 0;
+    let count = 0;
+    let out = "";
+    
+    function typeLine(){
+        //рисуем строку
+        let interval = setTimeout(function(){
+            out += text[line][count];
+            outText.innerText = out + "|";
+            count ++;
+            // проверки
+            if(count >=text[line].length){
+                count = 0;
+                line ++;
+                if(line == text.length) {
+                    clearTimeout(interval); 
+                    outText.innerText = out; //убираем типа курсор
+                    return true 
+                }
+            }
+            typeLine();
+        } , getRandomInt(getRandomInt(380*2.5)))
+    }
+    typeLine()
+}
+
+function getRandomInt(max){
+    return Math.floor(Math.random()*Math.floor(max))
+}
+typeText()
+
+//Перетаскивание элементов
+const zone1 = document.querySelector('.zone-1');
+const zone2 = document.querySelector('.zone-2');
+const zone3 = document.querySelector('.zone-3');
+const zone4 = document.querySelector('.zone-4');
+const lamp = document.querySelector('#lamp');
+const web = document.querySelector('#web');
+
+zone1.ondragover = allowDrop;
+zone2.ondragover = allowDrop;
+zone3.ondragover = allowDrop;
+zone4.ondragover = allowDrop;
+
+
+function allowDrop(event) {
+    event.preventDefault();
+}
+
+lamp.ondragstart = drag;
+web.ondragstart = drag;
+
+function drag(event) {
+    event.dataTransfer.setData('id', event.target.id);
+}
+zone1.ondrop = drop;
+zone2.ondrop = drop;
+zone3.ondrop = drop;
+zone4.ondrop = drop;
+
+
+function drop(event) {
+    let itemId = event.dataTransfer.getData('id');
+    if (event.target.tagName != "IMG") {
+        event.target.append(document.getElementById(itemId));
+    } else {
+        event.target.parentNode.append(document.getElementById(itemId));
+    }
+}
+
 

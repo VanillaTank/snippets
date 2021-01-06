@@ -22,7 +22,112 @@
         </section> -->
 
     <section class="idia">
-        <h3 class='title'>Имитация набора текста</h3>
+        <h3 class='title'>Перетскивание элементов</h3>
+        <div class="example bl-4__example">
+            <div class="zone-1">
+                 <img class="lamp" id="lamp" src="images/1.png" alt="" draggable="true">
+                 <img class="web" id="web" src="images/2.png" alt="" draggable="true">
+            </div>
+            <div class="zone-2"></div>
+            <div class="zone-3"></div>
+            <div class="zone-4"></div>
+        </div>
+        <div class="description">
+            <div class="bl-4__descr-item">
+                <h4 class="how-title">HTML</h4>
+                <pre class="bl-4__pre">
+&#60;img class="lamp" id="lamp" src="images/1.png" alt="" draggable="true"&#62;
+&#60;img class="web" id="web" src="images/2.png" alt="" draggable="true"&#62;                  
+                </pre>
+            </div>
+            <div class="bl-4__descr-item">
+                <h4 class="how-title">JS</h4>
+                <pre class="bl-4__pre">
+const zone1 = document.querySelector('.zone-1');
+const zone2 = document.querySelector('.zone-2'); //повторяем для большего числа блоков циклом
+const lamp = document.querySelector('#lamp');
+const web = document.querySelector('#web');
+
+zone1.ondragover = allowDrop;  //повторяем для большего числа блоков циклом
+zone2.ondragover = allowDrop;
+
+
+function allowDrop(event) {event.preventDefault()}
+
+lamp.ondragstart = drag;
+web.ondragstart = drag;
+
+function drag(event) {event.dataTransfer.setData('id', event.target.id)}
+zone1.ondrop = drop;  //повторяем для большего числа блоков циклом
+zone2.ondrop = drop;
+
+function drop(event) {
+    let itemId = event.dataTransfer.getData('id');
+    if (event.target.tagName != "IMG") {
+        event.target.append(document.getElementById(itemId));
+    } else {
+        event.target.parentNode.append(document.getElementById(itemId));
+    }
+}</pre>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="idia">
+        <h3 class='title'>Иммитация набора текста на JS</h3>
+        <div class="example bl-3__example">
+            <div class="bl-3__out-text">
+
+            </div>
+        </div>
+        <div class="description">
+            <h4 class="how-title">JS</h4>
+            <pre class="bl-3__pre">
+const outText = document.querySelector('.out-text');                
+const text = [
+    'Привет мир\n',
+    'Герда - лучшая чавчарка \nна свете\n',
+    'Собачки спасут мир'
+];
+
+function typeText(){
+    let line = 0;
+    let count = 0;
+    let out = ""; 
+    function typeLine(){
+        //рисуем строку
+        let interval = setTimeout(function(){
+            out += text[line][count];
+            outText.innerText = out + "|";
+            count ++;
+            // проверки
+            if(count >=text[line].length){
+                count = 0;
+                line ++;
+                if(line == text.length) {
+                    clearTimeout(interval); 
+                    outText.innerText = out; //убираем типа курсор
+                    return true 
+                }
+            }
+            typeLine();
+        } , getRandomInt(getRandomInt(380*2.5)))
+    }
+    typeLine()
+}
+
+function getRandomInt(max){
+    return Math.floor(Math.random()*Math.floor(max))
+}
+
+typeText()                
+            </pre>
+        </div>
+    </section>
+
+    <section class="idia">
+        <h3 class='title'>Имитация набора текста на CSS</h3>
         <div class="example">
             <div class="bl-2__container">
                 <p class="bl-2__text">Добавим немного магии</p>
@@ -31,7 +136,7 @@
         <div class="description bl-2__descr">
             <h4 class="how-title">CSS</h4>
             <div class="bl-2__descr-wrap">
-              <pre>
+                <pre>
 .bl-2__text{
 width: 21ch;
 font-family: monospace;
@@ -43,7 +148,7 @@ border-right: 3px solid #2fa10c;
 animation: flashing-border 0.85s step-end infinite,
            printed-text 5.95s steps(21)
 }</pre>
-            <pre>
+                <pre>
 @keyframes flashing-border {
     0% {border-color: #2fa10c;}
     50% {border-color: transparent;}
@@ -56,8 +161,8 @@ animation: flashing-border 0.85s step-end infinite,
 
 Расчет времени: 
 0.85 * кол-во символов / 3 тика анимации
-</pre>  
-            </div>  
+</pre>
+            </div>
         </div>
     </section>
 
@@ -86,6 +191,7 @@ animation: flashing-border 0.85s step-end infinite,
     height: 300px;
     position: relative;
     perspective: 1000px;
+    -webkit-perspective: 0;
 }
 .front, .back{
     position: absolute;
@@ -96,6 +202,8 @@ animation: flashing-border 0.85s step-end infinite,
     transition: 1s;
     backface-visibility: hidden;
     border-radius: 10px;
+    -webkit-backface-visibility: hidden;
+    visibility:visible;
 }
 .front{
     background-color: #2fa10c;
