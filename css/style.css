@@ -333,5 +333,87 @@ section {
 }
 .bl-4__pre {
     font-size: 16px;
-        padding: 0 10px;
+    padding: 0 10px;
+}
+/* Стилизация скролла */
+.bl-5_wrapper{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.bl-5_item {
+    margin-bottom: 30px;
+}
+.bl-5_item-inner {
+    font-size: 14px;
+    border: 1px solid #2fa10c;
+    height: 350px;
+    width: 450px;
+    overflow: scroll;
+    padding: 10px;
+}
+.bl-5_item-inner::-webkit-scrollbar {
+    background-color: #f9f9fd;
+    width: 10px;
+    height: 10px;
+}
+.bl-5_item-inner::-webkit-scrollbar-thumb {
+    background-color: #223c50;
+}
+.bl-5_item-inner::-webkit-scrollbar-track {
+    box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+}
+
+.bl-5_item-inner-2::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+  
+.bl-5_item-inner-2::-webkit-scrollbar-track {
+    box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+    background-color: #f9f9fd;
+}
+  
+.bl-5_item-inner-2::-webkit-scrollbar-thumb {
+    background-color: #f2bf93;
+    background-image: linear-gradient(45deg,rgba(255, 255, 255, .25) 25%,
+                      transparent 25%,
+                      transparent 50%,
+                      rgba(255, 255, 255, .25) 50%,
+                      rgba(255, 255, 255, .25) 75%,
+                      transparent 75%,
+                      transparent);
+}
+.bl-5_item-inner-3::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+.bl-5_item-inner-3::-webkit-scrollbar-track {
+    box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+    background-color: #f9f9fd;
+}
+.bl-5_item-inner-3::-webkit-scrollbar-thumb {
+    background-color: #356184;
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, .75), transparent);
+}
+.bl-5_item-inner-3::-webkit-scrollbar-thumb:vertical{
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, .75), transparent);
+}
+
+
+.bl-5_item-inner-4::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+.bl-5_item-inner-4::-webkit-scrollbar-track {
+    box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+    background-color: #f9f9fd;
+    border-radius: 10px;
+}
+.bl-5_item-inner-4::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: linear-gradient(90deg, #00c6fb, #005bea);
+}
+.bl-5_item-inner-4::-webkit-scrollbar-thumb:vertical {
+    background: linear-gradient(180deg, #00c6fb, #005bea);
 }

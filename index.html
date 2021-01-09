@@ -21,6 +21,107 @@
             </div>
         </section> -->
 
+
+    <section class="idia">
+        <h3 class='title'>Стилизация скралла</h3>
+        <div class="example">
+            <ul class="bl-5_wrapper">
+                <li class="bl-5_item">
+                    <div class="bl-5_item-inner">
+                        <h4  class="how-title">Пример 1</h4>
+                        <pre>
+.bl-5_item-inner::-webkit-scrollbar {
+    background-color: #f9f9fd;
+    width: 10px;
+    height: 10px;
+}
+.bl-5_item-inner::-webkit-scrollbar-thumb {
+    background-color: #223c50;
+}
+//внутряняя тень
+.bl-5_item-inner::-webkit-scrollbar-track {
+    box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+}</pre>   
+                    </div>
+                </li>
+                <li class="bl-5-item">
+                    <div class="bl-5_item-inner bl-5_item-inner-2">
+                        <h4  class="how-title">Пример 2</h4>
+                        <pre>
+.bl-5_item-inner-2::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+.bl-5_item-inner-2::-webkit-scrollbar-track {
+    box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+    background-color: #f9f9fd;
+}
+.bl-5_item-inner-2::-webkit-scrollbar-thumb {
+    background-color: #f2bf93;
+    background-image: linear-gradient(45deg,rgba(255, 255, 255, .25) 25%,
+                      transparent 25%,
+                      transparent 50%,
+                      rgba(255, 255, 255, .25) 50%,
+                      rgba(255, 255, 255, .25) 75%,
+                      transparent 75%,
+                      transparent);
+}
+                        </pre>
+                    </div>
+                </li>
+                <li class="bl-5-item">
+                    <div class="bl-5_item-inner bl-5_item-inner-3">
+                        <h4  class="how-title">Пример 3</h4>
+                        <pre>
+.bl-5_item-inner-3::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+.bl-5_item-inner-3::-webkit-scrollbar-track {
+    box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+    background-color: #f9f9fd;
+}
+.bl-5_item-inner-3::-webkit-scrollbar-thumb {
+    background-color: #356184;
+    background-image: linear-gradient(90deg, rgba(255, 255, 255, .75), transparent);
+}
+.bl-5_item-inner-3::-webkit-scrollbar-thumb:vertical{
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, .75), transparent);
+}
+                        </pre>
+                    </div>
+                </li>
+                <li class="bl-5-item">
+                    <div class="bl-5_item-inner bl-5_item-inner-4">
+                        <h4  class="how-title">Пример 4</h4>
+                        <pre>
+.bl-5_item-inner-4::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+.bl-5_item-inner-4::-webkit-scrollbar-track {
+    box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+    background-color: #f9f9fd;
+    border-radius: 10px;
+}
+.bl-5_item-inner-4::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: linear-gradient(180deg, #00c6fb, #005bea);
+}                            
+                        </pre>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+
+
+
+        <div class="description">
+            <h4  class="how-title">Пример 1</h4>
+        </div>
+    </section>
+
     <section class="idia">
         <h3 class='title'>Перетскивание элементов</h3>
         <div class="example bl-4__example">
@@ -43,6 +144,7 @@
             <div class="bl-4__descr-item">
                 <h4 class="how-title">JS</h4>
                 <pre class="bl-4__pre">
+    НЕ РАБОТАЕТ ДЛЯ СМАРТФОНОВ                
 const zone1 = document.querySelector('.zone-1');
 const zone2 = document.querySelector('.zone-2'); //повторяем для большего числа блоков циклом
 const lamp = document.querySelector('#lamp');
