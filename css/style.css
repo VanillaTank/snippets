@@ -351,6 +351,8 @@ section {
     width: 450px;
     overflow: scroll;
     padding: 10px;
+    scrollbar-color: #00c6fb #005bea;     /* «цвет ползунка» «цвет полосы скроллбара» */
+    scrollbar-width: thin;  /* толщина    auto | thin | none*/
 }
 .bl-5_item-inner::-webkit-scrollbar {
     background-color: #f9f9fd;
