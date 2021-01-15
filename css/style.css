@@ -228,9 +228,7 @@ section {
     transition: 1s;
     backface-visibility: hidden;
     border-radius: 10px;
-    /* -webkit-perspective: 0; */
     -webkit-backface-visibility: hidden;
-    /* -webkit-transform: translate3d(0,0,0); */
     visibility:visible;
 }
 .bl-1__front{
@@ -401,8 +399,6 @@ section {
 .bl-5_item-inner-3::-webkit-scrollbar-thumb:vertical{
     background-image: linear-gradient(180deg, rgba(255, 255, 255, .75), transparent);
 }
-
-
 .bl-5_item-inner-4::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -418,4 +414,33 @@ section {
 }
 .bl-5_item-inner-4::-webkit-scrollbar-thumb:vertical {
     background: linear-gradient(180deg, #00c6fb, #005bea);
+}
+/* Кодировка символов */
+.bl-6_wpapper {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.bl-6_wpapper li {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    padding: 0 55px;
+}
+.bl-6_wpapper li p {
+    max-width: 50%;
+    font-size: 16px;
+    text-align: center;
+}
+.bl-6_wpapper li:nth-child(n) {
+    background-color: rgb(253, 225, 225);
+}
+
+.bl-6_wpapper li:nth-child(2),
+.bl-6_wpapper li:nth-child(3),
+.bl-6_wpapper li:nth-child(6),
+.bl-6_wpapper li:nth-child(7),
+.bl-6_wpapper li:nth-child(10) {
+    background-color: rgb(250, 252, 154);
 }
