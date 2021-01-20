@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сниппеты</title>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -20,6 +21,107 @@
                 <h4  class="how-title"></h4>
             </div>
         </section> -->
+    <section class="idia">
+        <h3 class='title'>Подключение font awesome</h3>
+        <div class="example">
+            <div class="bl-7_exampleWrap">
+                <a class="fas fa-hamsa" href="#"><i class="fas fa-hamsa"></i> ко ко ко</a>
+            </div>
+        </div>
+        <div class="description">
+            <div class="bl-7_descrWrap">
+                <h4 class="how-title">Подключение по ссылке</h4>
+                <ol>
+                    <li>
+                        <p>
+                            Регаем свою почту на <a href="https://fontawesome.com/">https://fontawesome.com/</a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Получаем ссылку <br>
+                            &#60;script src="https://kit.fontawesome.com/682a1bab79.js"
+                            crossorigin="anonymous">&#60;/script>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Вставляем класс или i куда нужно<br>
+                            &#60;a class="fas fa-hamsa" href="#">&#60;i class="fas fa-hamsa">&#60;/i> ко ко ко&#60;/a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Внимание!!! При таком подключении настройки иконки(например, шрифт)
+                            будут влиять на наши стили, что может мешать.
+                        </p>
+                    </li>
+                </ol>
+            </div>
+            <div class="bl-7_descrWrap">
+                <h4 class="how-title">Локальное использование</h4>
+                <ol>
+                    <li>
+                        <p>
+                            Скачиваем архив с официального сайта (будет лежать в папке этого проекта)
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Заходим в папку css. All.css подключит все иконки, brand.css -
+                            брендовые (ех. Ютуб), и т.д. Внутренности можно посомтреть на сайте.
+                            Копируем нужный файл в свой проект и подключаем в link.
+                        </p>
+                    </li>
+                    <li>
+                        <p>Перетаскиваем в корень нашего проета папку со шрифтами webfonts.
+                            Если ее переименовать или взять из нее конкретный файл, в CSS
+                            нужно переписать url в самом конце файла.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Вставляем класс или i куда нужно<br>
+                            &#60;a class="fas fa-hamsa" href="#">&#60;i class="fas fa-hamsa">&#60;/i> ко ко ко&#60;/a>
+                        </p>
+                    </li>
+                    <li>
+                        <p>Чтобы пофиксить влияние стилей иконок на свои стили, нужно
+                            в самом низу их css прописать, что стили относятся к псевдоэлементам.
+                            Например,
+                        <pre>
+.fa,
+.fas::before{
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900; }                                
+                            </pre>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Кстати, в папке svg лежат все иконки, можно таскать оттуда :)
+                        </p>
+                    </li>
+                </ol>
+            </div>
+            <div class="bl-7_descrWrap">
+                <h4 class="how-title">Как получить платную иконку бесплатно</h4>
+                <ol>
+                    <li>
+                        <p>Заходим на сайт, выбираем нужную иконку</p>
+                    </li>
+                    <li>
+                        <p>Тыкаем "Посмотреть код" в ДевТулс. ПКМ, copy.</p>
+                    </li>
+                    <li>
+                        <p>Создаем локально svg-файл и сохранияем скопированное в него.</p>
+                    </li>
+                </ol>
+            </div>
+
+        </div>
+    </section>
+
 
     <section class="idia">
         <h3 class='title'>Кодировка символов</h3>
@@ -569,7 +671,7 @@ const fallingBtn = document.querySelector('.fallingBtn');
     </section>
 
 
-
+    <!-- <script src="https://kit.fontawesome.com/682a1bab79.js" crossorigin="anonymous"></script> -->
     <script src="main.js"></script>
 </body>
 

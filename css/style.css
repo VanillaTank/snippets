@@ -59,7 +59,9 @@ body {
 .title::after{
     margin-left: 10px;
 }
-
+.border {
+    border: 1px solid #2fa10c;
+}
 section {
     margin-bottom: 50px;
     border: 1px solid #000000;
@@ -443,4 +445,21 @@ section {
 .bl-6_wpapper li:nth-child(7),
 .bl-6_wpapper li:nth-child(10) {
     background-color: rgb(250, 252, 154);
+}
+
+
+/* Подключение font awesome */
+.bl-7_exampleWrap{
+    text-align: center;
+    padding: 15px 0;
+}
+.bl-7_descrWrap {
+    border: 1px solid #2fa10c;
+    font-size: 17px;
+}
+.bl-7_descrWrap+.bl-7_descrWrap{
+    margin-top: 20px;
+}
+.bl-7_descrWrap ol li{
+    list-style: decimal;
 }
