@@ -30,7 +30,7 @@ h1{
 body {
     font-family: 'SFProDisplay-Regular', sans-serif;
     color: #000000;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 24px;
     font-weight: 400;
 
@@ -462,4 +462,75 @@ section {
 }
 .bl-7_descrWrap ol li{
     list-style: decimal;
+}
+
+/* Работа с тенью */
+.bl-8 code {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+    display: block;
+    font-size: 18px;
+}
+.bl-8_exampleWrap {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 750px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+.bl-8_exampleWrap li {
+    text-align: center;
+    line-height: 130px;
+    width: 130px;
+    height: 130px;
+    background-color: rgb(250, 217, 145);
+    margin-bottom: 40px;
+    margin-right: 60px;
+}
+.bl-8_1 {
+    box-shadow: 10px 5px 5px yellow;
+}
+.bl-8_2 {
+    box-shadow: inset 3em 1em gold;
+}
+.bl-8_3 {
+    box-shadow: 12px 12px 10px 14px rgba(0, 0, 255, .2);
+}
+.bl-8_4 {
+    box-shadow: 3px 3px red, -1em 0 .4em olive;
+}
+.bl-8_5 {
+    box-shadow: 40px -15px teal;
+}
+.bl-8_6 {
+    box-shadow: inset 0px 0px 26px 26px rgb(0 0 255 / 20%);
+}
+.bl-8 .description dl {
+    font-size: 16px;
+    line-height: 20px;
+}
+.bl-8 .description dl dd {
+    margin-left: 25px;
+}
+.bl-8 .description dl dd pre {
+    margin-top: 10px;
+}
+.bl-8-descr-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+.bl-8-descr-wrap dl {
+    width: 50%;
+}
+
+
+.example.out {
+    text-align: center;
+}
+.orange {
+    background-color: orange;
+}
+.bold {
+    font-weight: 700;
 }

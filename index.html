@@ -22,6 +22,101 @@
             </div>
         </section> -->
     <section class="idia">
+        <h3 class='title'>Каррирование</h3>
+        <div class="example out">
+            
+        </div>
+        
+        <div class="description">
+            <h4 class="how-title">Снипет быстрого добавления элмента в ДОМ</h4>
+            <p>Каррирование - способ уменьшения арности функции. Способ имеет недостатки, например, будет 
+                сложно удалить из созданного таким способо элемента класс.
+            </p>
+            <pre>
+const out = document.querySelector('.out');
+let t = (tag, classes) => text => `<${tag} class="${classes.join(' ')}">${text}</${tag}>`;
+
+// function t(tag, classes) {   //вид t изнутри
+//     return function(text) {
+//         return `<${tag}>${text}</${tag}>`;
+//     }
+// }
+
+let div = t('div', ['bold', 'orange']);
+let elem = div('hello');
+let p = t('p', []);
+let elem2 = p('hello');
+
+out.innerHTML = elem;
+out.innerHTML += elem2;</pre>
+        </div>
+    </section>
+    <section class="idia bl-8">
+        <h3 class='title'>Работа с тенью</h3>
+        <code>box-shadow: inset(тень внутрь) &#60;отступ по х&#62; &#60;отступ по y&#62; &#60;радиус размытия&#62; &#60;размер тени&#62; &#60;цвет&#62;;</code>
+        <div class="example">
+            <ul class="bl-8_exampleWrap">
+                <li class="bl-8_1">1</li>
+                <li class="bl-8_2">2</li>
+                <li class="bl-8_3">3</li>
+                <li class="bl-8_4">4</li>
+                <li class="bl-8_5">5</li>
+                <li class="bl-8_6">6</li>
+            </ul>
+        </div>
+        <div class="description">
+            <h4 class="how-title">СSS</h4>
+            <div class="bl-8-descr-wrap">
+                <dl>
+                    <dt>1. Простая тень с мягким размытием</dt>
+                    <dd>
+                        <pre>
+box-shadow: 10px 5px 5px yellow;                    
+                    </pre>
+                    </dd>
+                    <dt>2. Внутрянняя тень (inset) без размытия</dt>
+                    <dd>
+                        <pre>
+box-shadow: inset 3em 1em gold;                  
+                    </pre>
+                    </dd>
+                    <dt>3. Тень с размытием в 10px и масшатбом в 14px</dt>
+                    <dd>
+                        <pre>
+box-shadow: 12px 12px 10px 14px rgba(0, 0, 255, .2);              
+                    </pre>
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>4. Две тени одного элемента</dt>
+                    <dd>
+                        <pre>
+box-shadow: 3px 3px red, -1em 0 .4em olive;
+                    </pre>
+                    </dd>
+                    <dt>5. Внешняя тень без размытия и масштаба</dt>
+                    <dd>
+                        <pre>
+box-shadow: 40px -15px teal;                  
+                    </pre>
+                    </dd>
+                    <dt>6. Центрированная внутряняя тень с размытием и масштабом</dt>
+                    <dd>
+                        <pre>
+box-shadow: inset 0px 0px 26px 26px rgb(0 0 255 / 20%);                    
+                    </pre>
+                    </dd>
+                </dl>
+            </div>
+
+
+
+        </div>
+    </section>
+
+
+    <section class="idia">
         <h3 class='title'>Подключение font awesome</h3>
         <div class="example">
             <div class="bl-7_exampleWrap">
@@ -63,7 +158,7 @@
                 <ol>
                     <li>
                         <p>
-                            Скачиваем архив с официального сайта (будет лежать в папке этого проекта)
+                            Скачиваем архив с официального сайта (будет лежать в на жестком диске)
                         </p>
                     </li>
                     <li>

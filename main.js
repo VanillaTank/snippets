@@ -113,4 +113,22 @@ function drop(event) {
     }
 }
 
+//Каррирование
+const out = document.querySelector('.out');
+
+let t = (tag, classes) => text => `<${tag} class="${classes.join(' ')}">${text}</${tag}>`;
+
+// function t(tag, classes) {
+//     return function(text) {
+//         return `<${tag}>${text}</${tag}>`;
+//     }
+// }
+let div = t('div', ['bold', 'orange']);
+let elem = div('hello');
+let p = t('p', []);
+let elem2 = p('hello');
+
+out.innerHTML = elem;
+out.innerHTML += elem2;
+
 
