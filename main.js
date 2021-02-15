@@ -1,3 +1,16 @@
+window.onload = () => {
+    const btnToggles = document.querySelectorAll('.btn-toggle');
+
+    btnToggles.forEach(item => {
+        item.addEventListener('click', (e) => {
+            let currentBtn = e.target;
+            let currentDropBody = currentBtn.parentNode.querySelector('.drop-body');
+            currentDropBody.classList.toggle('open');
+        })
+    })
+}
+
+
 //Анимация формы 
 const shakeBlock = document.querySelector('.shakeBlock');
 const shakeBtn = document.querySelector('.shakeBtn');

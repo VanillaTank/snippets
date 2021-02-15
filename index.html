@@ -18,19 +18,140 @@
             <h3 class='title'>Подзаголовок</h3>
             <div class="example"></div>
             <div class="description">
-                <h4  class="how-title"></h4>
+                <div class="border">
+                    <h4 class="how-title btn-toggle"></h4>
+                    <div class="drop-body"></div>
+                </div>
+                
             </div>
         </section> -->
+
+    <!-- <section class="idia">
+            <h3 class='title'>Подзаголовок</h3>
+            <div class="example"></div>
+            <div class="description">
+                <div class="border">
+                    <h4 class="how-title btn-toggle"></h4>
+                    <div class="drop-body">
+                        <div class="row">
+                            <div class="col">1 колонка</div>
+                            <div class="col">2 колонка</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+    <section class="idia">
+        <h3 class='title'>Инпут с крестиком очистки</h3>
+        <div class="example bl-10">
+            <form class="bl-10__form">
+                <input type="text">
+                <button type="reset">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 8L8 16" stroke="#ADB3AE" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <path d="M16 16L8 8" stroke="#ADB3AE" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+        <div class="description">
+
+            <div class="border">
+                <h4 class="how-title btn-toggle">HTML</h4>
+                <div class="drop-body">
+                    <pre>
+&#60;form class="bl-10__form">
+    &#60;input type="text">
+    &#60;button type="reset">
+            &#60;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                &#60;path d="M16 8L8 16" stroke="#ADB3AE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                &#60;path d="M16 16L8 8" stroke="#ADB3AE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            &#60;/svg>
+    &#60;/button>
+    &#60;button type="submit">Отправить&#60;/button>
+&#60;/form>
+</pre>
+                </div>
+            </div>
+
+
+            <div class="border">
+                <h4 class="how-title btn-toggle">СSS</h4>
+                <div class="row drop-body">
+                    <div class="col">
+                        <pre>
+.bl-10__form {
+    width: 500px;
+    margin: 20px auto;
+    position: relative;
+    background-color: rgb(199, 255, 238);
+    display: flex;
+    padding: 20px;
+    border-radius: 4px;
+}
+.bl-10__form * {
+    outline: none;
+    height: 40px;
+    border: none;
+}
+.bl-10__form input[type=text] {
+    width: calc(100% - 100px);
+    padding: 0 30px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}</pre>
+                    </div>
+
+
+                    <div class="col">
+                        <pre>
+.bl-10__form button[type=reset] {
+    position: absolute;
+    top: 20px;
+    right: 120px;
+    background-color: transparent;
+    opacity: 0;
+}
+.bl-10__form input[type=text]:focus+button[type=reset] {
+    opacity: 1;
+}
+.bl-10__form button[type=submit] {
+    width: 100px;
+    background-color: rgb(25, 233, 248);
+    color: #fff;
+    border: none;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}</pre>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
     <section class="idia">
         <h3 class='title'>Каррирование</h3>
         <div class="example out">
-            
+
         </div>
-        
+
         <div class="description">
             <h4 class="how-title">Снипет быстрого добавления элмента в ДОМ</h4>
-            <p>Каррирование - способ уменьшения арности функции. Способ имеет недостатки, например, будет 
-                сложно удалить из созданного таким способо элемента класс.
+            <p>Каррирование - преобразование функции с несколькими агрументами к набору
+                унарных (один агрумент) функций. Способ имеет недостатки, например, тройное сальто вместо
+                шага вперед. И это пример использования каррирования, созданного как паттерн для удобства
             </p>
             <pre>
 const out = document.querySelector('.out');
