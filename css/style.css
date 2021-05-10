@@ -597,3 +597,24 @@ section {
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
 }
+/*Перетаскивание и клик на одном элементе*/
+.bl-11__example{
+    height: 120px;
+    position: relative;
+}
+.bl-11__ex-wrap {
+    width: 100px;
+    height: 100px;
+    background-color: darkseagreen;
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.bl-11__ex-inner {
+    width: 20px;
+    height: 20px;
+    background-color: greenyellow;
+    cursor: pointer;
+}

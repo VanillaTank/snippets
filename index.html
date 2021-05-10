@@ -42,6 +42,79 @@
             </div>
         </section> -->
 
+
+    <section class="idia bl-11">
+        <h3 class='title'>Перетаскивание и клик на одном элементе</h3>
+        <div class="example bl-11__example">
+            <div class="bl-11__ex-wrap">
+                <div class="bl-11__ex-inner"></div>
+            </div>
+        </div>
+
+        <div class="description">
+            <div class="border">
+                <h4 class="how-title btn-toggle">JS</h4>
+                <div class="drop-body">
+<pre>
+    const divParent = document.querySelector('.bl-11__ex-wrap')
+    const divTarget = document.querySelector('.bl-11__ex-inner')
+
+
+    divTarget.addEventListener('mousedown', (evt) => {
+        evt.preventDefault();
+
+        let startCoords = {
+            x: evt.clientX,
+            y: evt.clientY
+        }
+
+        let dragged = false;
+
+        function onMouseMove(moveEvt) {
+            moveEvt.preventDefault();
+            dragged = true;
+            let shift = {
+                x: startCoords.x - moveEvt.clientX,
+                y: startCoords.y - moveEvt.clientY
+            }
+
+            startCoords = {
+                x: moveEvt.clientX,
+                y: moveEvt.clientY
+            }
+
+            divParent.style.left = divParent.offsetLeft - shift.x + 'px';
+            divParent.style.top = divParent.offsetTop - shift.y + 'px';
+        }
+
+        function onMouseUp(evtUp) {
+            evtUp.preventDefault();
+
+            if(dragged) {
+                let onClickPreventDefault = function (evt) {
+                    evt.preventDefault();
+                    divTarget.removeEventListener('click', onClickPreventDefault)
+                }
+                divTarget.addEventListener('click', onClickPreventDefault)
+            } else {
+                alert('click')
+            }
+
+            document.removeEventListener('mouseup', onMouseUp);
+            document.removeEventListener('mousemove', onMouseMove);
+        }
+
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+    } )
+</pre>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
     <section class="idia">
         <h3 class='title'>Инпут с крестиком очистки</h3>
         <div class="example bl-10">
@@ -155,11 +228,11 @@
             </p>
             <pre>
 const out = document.querySelector('.out');
-let t = (tag, classes) => text => `<${tag} class="${classes.join(' ')}">${text}</${tag}>`;
+let t = (tag, classes) => text => `<${tag} class="${classes.join(' ')}">${text}&#60;/${tag}>`;
 
 // function t(tag, classes) {   //вид t изнутри
 //     return function(text) {
-//         return `<${tag}>${text}</${tag}>`;
+//         return `<${tag}>${text}&#60;/${tag}>`;
 //     }
 // }
 

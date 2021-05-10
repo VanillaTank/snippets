@@ -10,8 +10,8 @@ window.onload = () => {
     })
 }
 
-
-//Анимация формы 
+// -------------------------------------------------------------------------------------
+//Анимация формы
 const shakeBlock = document.querySelector('.shakeBlock');
 const shakeBtn = document.querySelector('.shakeBtn');
 shakeBtn.addEventListener('click', () => {
@@ -30,6 +30,7 @@ fallingBtn.addEventListener('click', () => {
     fallingBlock.classList.add('animForm-falling')
 });
 
+// -------------------------------------------------------------------------------------
 //Переворачивающиеся карточки(для телефонов)
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     const cards = document.querySelectorAll('.bl-1__card');
@@ -47,6 +48,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     })
 }
 
+// -------------------------------------------------------------------------------------
 //Иммитация набора текста на JS
 const text = [
     'Привет мир\n',
@@ -59,7 +61,7 @@ function typeText(){
     let line = 0;
     let count = 0;
     let out = "";
-    
+
     function typeLine(){
         //рисуем строку
         let interval = setTimeout(function(){
@@ -71,9 +73,9 @@ function typeText(){
                 count = 0;
                 line ++;
                 if(line == text.length) {
-                    clearTimeout(interval); 
+                    clearTimeout(interval);
                     outText.innerText = out; //убираем типа курсор
-                    return true 
+                    return true
                 }
             }
             typeLine();
@@ -87,6 +89,7 @@ function getRandomInt(max){
 }
 typeText()
 
+// -------------------------------------------------------------------------------------
 //Перетаскивание элементов
 const zone1 = document.querySelector('.zone-1');
 const zone2 = document.querySelector('.zone-2');
@@ -126,6 +129,7 @@ function drop(event) {
     }
 }
 
+// -------------------------------------------------------------------------------------
 //Каррирование
 const out = document.querySelector('.out');
 
@@ -144,4 +148,59 @@ let elem2 = p('hello');
 out.innerHTML = elem;
 out.innerHTML += elem2;
 
+// -------------------------------------------------------------------------------------
+// Перетаскивание и клик на одном элементе
+(function b11() {
+    const divParent = document.querySelector('.bl-11__ex-wrap')
+    const divTarget = document.querySelector('.bl-11__ex-inner')
 
+
+    divTarget.addEventListener('mousedown', (evt) => {
+        evt.preventDefault();
+
+        let startCoords = {
+            x: evt.clientX,
+            y: evt.clientY
+        }
+
+        let dragged = false;
+
+        function onMouseMove(moveEvt) {
+            moveEvt.preventDefault();
+            dragged = true;
+            let shift = {
+                x: startCoords.x - moveEvt.clientX,
+                y: startCoords.y - moveEvt.clientY
+            }
+
+            startCoords = {
+                x: moveEvt.clientX,
+                y: moveEvt.clientY
+            }
+
+            divParent.style.left = divParent.offsetLeft - shift.x + 'px';
+            divParent.style.top = divParent.offsetTop - shift.y + 'px';
+        }
+
+        function onMouseUp(evtUp) {
+            evtUp.preventDefault();
+
+            if(dragged) {
+                let onClickPreventDefault = function (evt) {
+                    evt.preventDefault();
+                    divTarget.removeEventListener('click', onClickPreventDefault)
+                }
+                divTarget.addEventListener('click', onClickPreventDefault)
+            } else {
+                alert('click')
+            }
+
+            document.removeEventListener('mouseup', onMouseUp);
+            document.removeEventListener('mousemove', onMouseMove);
+        }
+
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+    } )
+
+})()
