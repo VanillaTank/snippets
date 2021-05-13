@@ -154,7 +154,6 @@ out.innerHTML += elem2;
     const divParent = document.querySelector('.bl-11__ex-wrap')
     const divTarget = document.querySelector('.bl-11__ex-inner')
 
-
     divTarget.addEventListener('mousedown', (evt) => {
         evt.preventDefault();
 
@@ -203,4 +202,26 @@ out.innerHTML += elem2;
         document.addEventListener('mouseup', onMouseUp);
     } )
 
-})()
+})();
+// -------------------------------------------------------------------------------------
+// Изменение текста не активной вкладки
+(function b12() {
+    let timer;
+    let time = 1000;
+    let t = 'Сниппеты';
+    let i = './images/favicon.ico'
+    const ICON = './images/cow-icon.png';
+    const TEXT = '😊 Куда пошел????!';
+
+    function changeTitle(icon, text) {
+        document.querySelector('head title').innerHTML = text;
+        document.querySelector('link[rel="shortcut icon"]').setAttribute('href', icon);
+    }
+    window.onblur = () => {
+        timer = setTimeout(()=> {changeTitle(ICON, TEXT)}, time);
+    }
+    window.onfocus = () => {
+        clearTimeout(timer);
+        changeTitle(i, t)
+    }
+})();

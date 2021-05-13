@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Сниппеты</title>
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/all.css">
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/all.css">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
@@ -42,16 +42,81 @@
             </div>
         </section> -->
 
+    <section class="idia b-12">
+        <h3 class='title'>Изменение текста не активной вкладки</h3>
+        <div class="example">
+            Эмоджи берем из телеги, например.</br>
+            Чтобы посмотерть, как это работает, открой рядом другую вкладку и перейди на нее.
+            Сейчас таймер изменения установлен на 1 секунду.
+        </div>
+        <div class="description">
+            <div class="border">
+                <h4 class="how-title btn-toggle">JS</h4>
+                <div class="drop-body">
+<pre>
+    function b12() {
+        let timer;
+        let time = 1000;
+        let t = 'Сниппеты';
+        let i = './images/favicon.ico'
+        const ICON = './images/cow-icon.png';
+        const TEXT = '😊 Куда пошел????!';
+
+        function changeTitle(icon, text) {
+            document.querySelector('head title').innerHTML = text;
+            document.querySelector('link[rel="shortcut icon"]').setAttribute('href', icon);
+        }
+        window.onblur = () => {
+            timer = setTimeout(()=> {changeTitle(ICON, TEXT)}, time);
+        }
+        window.onfocus = () => {
+            clearTimeout(timer);
+            changeTitle(i, t)
+        }
+    }
+</pre>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
     <section class="idia bl-11">
         <h3 class='title'>Перетаскивание и клик на одном элементе</h3>
-        <div class="example bl-11__example">
-            <div class="bl-11__ex-wrap">
-                <div class="bl-11__ex-inner"></div>
+        <div class="example bl-11__example" title="bl-11__example">
+            <div class="bl-11__ex-wrap" title="bl-11__ex-wrap">
+                <div class="bl-11__ex-inner" title="bl-11__ex-inner"></div>
             </div>
         </div>
 
         <div class="description">
+            <div class="border">
+                <h4 class="how-title btn-toggle">CSS</h4>
+                <div class="drop-body">
+<pre>
+    .bl-11__example{
+        height: 120px;
+        position: relative;
+    }
+    .bl-11__ex-wrap {
+        width: 100px;
+        height: 100px;
+        background-color: darkseagreen;
+        position: absolute;
+        z-index: 100;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .bl-11__ex-inner {
+        width: 20px;
+        height: 20px;
+        background-color: greenyellow;
+        cursor: pointer;
+    }
+</pre>
+                </div>
+            </div>
             <div class="border">
                 <h4 class="how-title btn-toggle">JS</h4>
                 <div class="drop-body">
@@ -961,7 +1026,7 @@ const fallingBtn = document.querySelector('.fallingBtn');
 
 
     <!-- <script src="https://kit.fontawesome.com/682a1bab79.js" crossorigin="anonymous"></script> -->
-    <script src="main.js"></script>
+    <script src="./main.js"></script>
 </body>
 
 </html>

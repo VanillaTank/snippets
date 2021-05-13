@@ -618,3 +618,7 @@ section {
     background-color: greenyellow;
     cursor: pointer;
 }
+
+.b-12 .example {
+    padding: 0 20px;
+}
