@@ -622,3 +622,27 @@ section {
 .b-12 .example {
     padding: 0 20px;
 }
+
+/* Живой поиск */
+.b-13 .container {
+    width: 100%;
+    background-color: rgb(248, 218, 191);
+    padding: 15px 30%;
+    border-radius: 5px;
+}
+.b-13 input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    outline-color: rgb(250, 132, 21);
+}
+.b-13 li {
+    border: 1px solid rgb(247, 143, 25);
+    background-color: #fff;
+    margin-top: 10px;
+    padding: 6px 10px;
+}
+
+.b-13 .hide {
+    display: none;
+}

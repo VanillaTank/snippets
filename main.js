@@ -225,3 +225,33 @@ out.innerHTML += elem2;
         changeTitle(i, t)
     }
 })();
+
+// -------------------------------------------------------------------------------------
+//Живой поиск
+document.querySelector('.b-13 #elastic').oninput = function () {
+    let val = this.value.toLowerCase();
+    let elasticItems = [...document.querySelectorAll('.b-13 .elastic-ul li')];
+    if (val != '') {
+      elasticItems.forEach(elem => {
+        if (elem.innerText.toLowerCase().search(val) == -1) {
+          elem.classList.add('hide')
+          elem.innerHTML = elem.innerText
+        }
+        else {
+          elem.classList.remove('hide')
+          let str = elem.innerText
+          elem.innerHTML = insertMark(str, elem.innerText.toLowerCase().search(val), val.length)
+        }
+      })
+    } else {
+      elasticItems.forEach(elem => {
+        elem.classList.remove('hide')
+        elem.innerHTML = elem.innerText
+      })
+  
+    }
+  }
+  
+  function insertMark(string, pos, len) {
+    return string.slice(0, pos) + "<mark>" + string.slice(pos, pos + len) + "</mark>" + string.slice(pos + len);
+  }

@@ -42,6 +42,66 @@
             </div>
         </section> -->
 
+    <section class="idia b-13">
+        <h3 class='title'>Живой поиск</h3>
+        <div class="example">
+            <div class="container">
+                <input type="text" id="elastic">
+                <ul class="elastic-ul">
+                    <li>Астра</li>
+                    <li>Альстермерия</li>
+                    <li>Тобернамонтана</li>
+                    <li>Азалия</li>
+                    <li>Рододендрон</li>
+                    <li>Фаленопсис дендробиум</li>
+                    <li>Каттлея</li>
+                    <li>Аквелегия</li>
+                    <li>Астильба</li>
+    
+                </ul>
+            </div>
+        </div>
+        </div>
+        <div class="description">
+            <div class="border">
+                <h4 class="how-title btn-toggle">JS</h4>
+                <div class="drop-body">
+<pre>
+    document.querySelector('#elastic').oninput = function () {
+        let val = this.value.toLowerCase();
+        let elasticItems = [...document.querySelectorAll('.elastic-ul li')];
+        if (val != '') {
+          elasticItems.forEach(elem => {
+            if (elem.innerText.toLowerCase().search(val) == -1) {
+              elem.classList.add('hide')
+              elem.innerHTML = elem.innerText
+            }
+            else {
+              elem.classList.remove('hide')
+              let str = elem.innerText
+              elem.innerHTML = insertMark(str, elem.innerText.toLowerCase().search(val), val.length)
+            }
+          })
+        } else {
+          elasticItems.forEach(elem => {
+            elem.classList.remove('hide')
+            elem.innerHTML = elem.innerText
+          })
+      
+        }
+      }
+      
+      function insertMark(string, pos, len) {
+        //pos - position, там, где нашли совпадение
+        //len - количество символов, которые ввел пользователь
+        return string.slice(0, pos) + "&#60;mark>" + string.slice(pos, pos + len) + "&#60;/mark>" + string.slice(pos + len);
+      }
+</pre>
+                </div>
+            </div>
+
+        </div>
+    </section>
     <section class="idia b-12">
         <h3 class='title'>Изменение текста не активной вкладки</h3>
         <div class="example">
@@ -53,7 +113,7 @@
             <div class="border">
                 <h4 class="how-title btn-toggle">JS</h4>
                 <div class="drop-body">
-<pre>
+                    <pre>
     function b12() {
         let timer;
         let time = 1000;
@@ -93,7 +153,7 @@
             <div class="border">
                 <h4 class="how-title btn-toggle">CSS</h4>
                 <div class="drop-body">
-<pre>
+                    <pre>
     .bl-11__example{
         height: 120px;
         position: relative;
@@ -120,7 +180,7 @@
             <div class="border">
                 <h4 class="how-title btn-toggle">JS</h4>
                 <div class="drop-body">
-<pre>
+                    <pre>
     const divParent = document.querySelector('.bl-11__ex-wrap')
     const divTarget = document.querySelector('.bl-11__ex-inner')
 
