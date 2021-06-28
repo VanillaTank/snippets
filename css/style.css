@@ -527,7 +527,7 @@ section {
     box-shadow: 40px -15px teal;
 }
 .bl-8_6 {
-    box-shadow: inset 0px 0px 26px 26px rgb(0 0 255 / 20%);
+    box-shadow: inset 0 0 26px 26px rgb(0 0 255 / 20%);
 }
 .bl-8 .description dl {
     font-size: 16px;
