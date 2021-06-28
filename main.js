@@ -57,35 +57,35 @@ const text = [
 ];
 const outText = document.querySelector('.bl-3__out-text');
 
-function typeText(){
+function typeText() {
     let line = 0;
     let count = 0;
     let out = "";
 
-    function typeLine(){
+    function typeLine() {
         //рисуем строку
-        let interval = setTimeout(function(){
+        let interval = setTimeout(function () {
             out += text[line][count];
             outText.innerText = out + "|";
-            count ++;
+            count++;
             // проверки
-            if(count >=text[line].length){
+            if (count >= text[line].length) {
                 count = 0;
-                line ++;
-                if(line == text.length) {
+                line++;
+                if (line == text.length) {
                     clearTimeout(interval);
                     outText.innerText = out; //убираем типа курсор
                     return true
                 }
             }
             typeLine();
-        } , getRandomInt(getRandomInt(380*2.5)))
+        }, getRandomInt(getRandomInt(380 * 2.5)))
     }
     typeLine()
 }
 
-function getRandomInt(max){
-    return Math.floor(Math.random()*Math.floor(max))
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max))
 }
 typeText()
 
@@ -184,7 +184,7 @@ out.innerHTML += elem2;
         function onMouseUp(evtUp) {
             evtUp.preventDefault();
 
-            if(dragged) {
+            if (dragged) {
                 let onClickPreventDefault = function (evt) {
                     evt.preventDefault();
                     divTarget.removeEventListener('click', onClickPreventDefault)
@@ -200,7 +200,7 @@ out.innerHTML += elem2;
 
         document.addEventListener('mousemove', onMouseMove);
         document.addEventListener('mouseup', onMouseUp);
-    } )
+    })
 
 })();
 // -------------------------------------------------------------------------------------
@@ -218,7 +218,7 @@ out.innerHTML += elem2;
         document.querySelector('link[rel="shortcut icon"]').setAttribute('href', icon);
     }
     window.onblur = () => {
-        timer = setTimeout(()=> {changeTitle(ICON, TEXT)}, time);
+        timer = setTimeout(() => { changeTitle(ICON, TEXT) }, time);
     }
     window.onfocus = () => {
         clearTimeout(timer);
@@ -232,26 +232,64 @@ document.querySelector('.b-13 #elastic').oninput = function () {
     let val = this.value.toLowerCase();
     let elasticItems = [...document.querySelectorAll('.b-13 .elastic-ul li')];
     if (val != '') {
-      elasticItems.forEach(elem => {
-        if (elem.innerText.toLowerCase().search(val) == -1) {
-          elem.classList.add('hide')
-          elem.innerHTML = elem.innerText
-        }
-        else {
-          elem.classList.remove('hide')
-          let str = elem.innerText
-          elem.innerHTML = insertMark(str, elem.innerText.toLowerCase().search(val), val.length)
-        }
-      })
+        elasticItems.forEach(elem => {
+            if (elem.innerText.toLowerCase().search(val) == -1) {
+                elem.classList.add('hide')
+                elem.innerHTML = elem.innerText
+            }
+            else {
+                elem.classList.remove('hide')
+                let str = elem.innerText
+                elem.innerHTML = insertMark(str, elem.innerText.toLowerCase().search(val), val.length)
+            }
+        })
     } else {
-      elasticItems.forEach(elem => {
-        elem.classList.remove('hide')
-        elem.innerHTML = elem.innerText
-      })
-  
+        elasticItems.forEach(elem => {
+            elem.classList.remove('hide')
+            elem.innerHTML = elem.innerText
+        })
+
     }
-  }
-  
-  function insertMark(string, pos, len) {
+}
+
+function insertMark(string, pos, len) {
     return string.slice(0, pos) + "<mark>" + string.slice(pos, pos + len) + "</mark>" + string.slice(pos + len);
-  }
+}
+
+// -------------------------------------------------------------------------------------
+//Дебаунсер
+(function () {
+    const btn = document.querySelector('#b-14_btn');
+    const backGround = document.querySelector("#b-14_back");
+    const output = document.querySelector('#b-14_output');
+    const arrColor = ['#fff', '#000', '#f2faaf', '#faccaf', '#ecaffa', '#faafaf', '#78a5ff']
+    let colorIndex = 0;
+    const input = document.querySelector('#b-14_btn-input');
+    
+    const onClickHandler = debounce(()=>{
+        backGround.style.backgroundColor = arrColor[colorIndex];
+        if (colorIndex < arrColor.length - 1) colorIndex++;
+        else colorIndex = 0
+    })
+    btn.addEventListener('click', onClickHandler)
+
+    const keyupHandler = debounce(()=>{ output.innerText = input.value })
+    input.addEventListener('keyup', keyupHandler)
+
+    const DEBOUNCE_INTERVAL = 300;
+    function debounce(fun) {
+        let lastTimeout = null;
+
+        return function () {
+            const args = arguments;
+            if (lastTimeout) {
+                console.log(1);
+                window.clearTimeout(lastTimeout)
+            }
+            lastTimeout = window.setTimeout(function () {
+                lastTimeout = null;
+                fun.apply(null, args)
+            }, DEBOUNCE_INTERVAL)
+        }
+    }
+})()

@@ -22,7 +22,6 @@
                     <h4 class="how-title btn-toggle"></h4>
                     <div class="drop-body"></div>
                 </div>
-                
             </div>
         </section> -->
 
@@ -42,6 +41,56 @@
             </div>
         </section> -->
 
+    <section class="idia b-14">
+        <h3 class='title'>Дебаунсер</h3>
+        <div class="example" id="b-14_back">
+            <div class="btn" id="b-14_btn">Изменить цвет</div>
+            <input type="text" id="b-14_btn-input" placeholder="Введите что-нибудь">
+            <p id='b-14_output'></p>
+        </div>
+        <div class="description">
+            <div class="border">
+                <h4 class="how-title btn-toggle">JS</h4>
+                <div class="drop-body">
+<pre>
+    const btn = document.querySelector('#b-14_btn');
+    const backGround = document.querySelector("#b-14_back")
+    const arrColor = ['#fff', '#000', '#f2faaf', '#faccaf', '#ecaffa', '#faafaf', '#78a5ff']
+    let colorIndex = 0;
+    const input = document.querySelector('#b-14_btn-input');
+    
+    const onClickHandler = debounce(()=>{
+        backGround.style.backgroundColor = arrColor[colorIndex];
+        if (colorIndex < arrColor.length - 1) colorIndex++;
+        else colorIndex = 0
+    })
+    btn.addEventListener('click', onClickHandler)
+
+    const keyupHandler = debounce(()=>{ console.log(input.value) })
+    input.addEventListener('keyup', keyupHandler)
+
+    //сам дебаунсер
+    const DEBOUNCE_INTERVAL = 300;
+    function debounce(fun) {
+        let lastTimeout = null;
+
+        return function () {
+            const args = arguments;
+            if (lastTimeout) {
+                console.log(1);
+                window.clearTimeout(lastTimeout)
+            }
+            lastTimeout = window.setTimeout(function () {
+                lastTimeout = null;
+                fun.apply(null, args)
+            }, DEBOUNCE_INTERVAL)
+        }
+    }
+</pre>                    
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="idia b-13">
         <h3 class='title'>Живой поиск</h3>
         <div class="example">
@@ -57,7 +106,7 @@
                     <li>Каттлея</li>
                     <li>Аквелегия</li>
                     <li>Астильба</li>
-    
+
                 </ul>
             </div>
         </div>
@@ -66,7 +115,7 @@
             <div class="border">
                 <h4 class="how-title btn-toggle">JS</h4>
                 <div class="drop-body">
-<pre>
+                    <pre>
     document.querySelector('#elastic').oninput = function () {
         let val = this.value.toLowerCase();
         let elasticItems = [...document.querySelectorAll('.elastic-ul li')];
