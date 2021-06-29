@@ -228,33 +228,36 @@ out.innerHTML += elem2;
 
 // -------------------------------------------------------------------------------------
 //Живой поиск
-document.querySelector('.b-13 #elastic').oninput = function () {
-    let val = this.value.toLowerCase();
-    let elasticItems = [...document.querySelectorAll('.b-13 .elastic-ul li')];
-    if (val != '') {
-        elasticItems.forEach(elem => {
-            if (elem.innerText.toLowerCase().search(val) == -1) {
-                elem.classList.add('hide')
-                elem.innerHTML = elem.innerText
-            }
-            else {
+(function () {
+    document.querySelector('.b-13 #elastic').oninput = function () {
+        let val = this.value.toLowerCase();
+        let elasticItems = [...document.querySelectorAll('.b-13 .elastic-ul li')];
+        if (val != '') {
+            elasticItems.forEach(elem => {
+                if (elem.innerText.toLowerCase().search(val) == -1) {
+                    elem.classList.add('hide')
+                    elem.innerHTML = elem.innerText
+                }
+                else {
+                    elem.classList.remove('hide')
+                    let str = elem.innerText
+                    elem.innerHTML = insertMark(str, elem.innerText.toLowerCase().search(val), val.length)
+                }
+            })
+        } else {
+            elasticItems.forEach(elem => {
                 elem.classList.remove('hide')
-                let str = elem.innerText
-                elem.innerHTML = insertMark(str, elem.innerText.toLowerCase().search(val), val.length)
-            }
-        })
-    } else {
-        elasticItems.forEach(elem => {
-            elem.classList.remove('hide')
-            elem.innerHTML = elem.innerText
-        })
+                elem.innerHTML = elem.innerText
+            })
 
+        }
     }
-}
 
-function insertMark(string, pos, len) {
-    return string.slice(0, pos) + "<mark>" + string.slice(pos, pos + len) + "</mark>" + string.slice(pos + len);
-}
+    function insertMark(string, pos, len) {
+        return string.slice(0, pos) + "<mark>" + string.slice(pos, pos + len) + "</mark>" + string.slice(pos + len);
+    }
+})();
+
 
 // -------------------------------------------------------------------------------------
 //Дебаунсер
@@ -265,15 +268,15 @@ function insertMark(string, pos, len) {
     const arrColor = ['#fff', '#000', '#f2faaf', '#faccaf', '#ecaffa', '#faafaf', '#78a5ff']
     let colorIndex = 0;
     const input = document.querySelector('#b-14_btn-input');
-    
-    const onClickHandler = debounce(()=>{
+
+    const onClickHandler = debounce(() => {
         backGround.style.backgroundColor = arrColor[colorIndex];
         if (colorIndex < arrColor.length - 1) colorIndex++;
         else colorIndex = 0
     })
     btn.addEventListener('click', onClickHandler)
 
-    const keyupHandler = debounce(()=>{ output.innerText = input.value })
+    const keyupHandler = debounce(() => { output.innerText = input.value })
     input.addEventListener('keyup', keyupHandler)
 
     const DEBOUNCE_INTERVAL = 300;
@@ -292,4 +295,44 @@ function insertMark(string, pos, len) {
             }, DEBOUNCE_INTERVAL)
         }
     }
-})()
+})();
+// -------------------------------------------------------------------------------------
+//XMLHttpRequest
+(function () {
+    const data = null;
+    const xhr = new XMLHttpRequest();
+    xhr.timeout = 300001; //его можно не задавать, по умолчанию 30 секунд
+
+    xhr.addEventListener('error', () => { onError("Ошибка соединения") })
+    xhr.addEventListener('timeout', () => { onError(`Запрос не успел выполниться за ${xhr.timeout}мс`) })
+
+    xhr.addEventListener('load', () => {
+        switch (xhr.status) {
+            case 200: showData(xhr.response)
+                break;
+            default: onError(`Статус ответа: ${xhr.status}, ${xhr.statusText}`)
+        }
+
+
+    })
+
+    xhr.responseType = 'json';
+    xhr.open("GET", "https://brianiswu-cat-facts-v1.p.rapidapi.com/facts");
+    xhr.setRequestHeader("x-rapidapi-key", "fee2f886d4mshb128b759bb2ccfcp1ccc5cjsn7e8964df0879");
+    xhr.setRequestHeader("x-rapidapi-host", "brianiswu-cat-facts-v1.p.rapidapi.com");
+
+    //пишем всегда после обработчика load, так как ответ может придти раньше срабатывания обработчика
+    xhr.send(data);
+
+    //----------------------------------------------------------------------------------------------------
+    function showData(newData) {
+        const output = document.querySelector('.b-15_output');
+        newData.forEach(item => {
+            output.innerHTML += `<li>${item.text}</li>`
+        })
+    }
+    function onError(text) {
+        console.error(text)
+        output.innerHTML += `<li>${text}</li>`
+    }
+})();

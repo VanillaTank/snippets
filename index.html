@@ -40,7 +40,56 @@
                 </div>
             </div>
         </section> -->
+    <section class="idia b-15">
+        <h3 class='title'>XMLHttpRequest</h3>
+        <div class="example">
+            <h3>Факты про кошек</h3>
+            <ul class="b-15_output"></ul>
+        </div>
+        <div class="description">
+            <div class="border">
+                <h4 class="how-title btn-toggle">JS</h4>
+                <div class="drop-body">
+<pre>
+    const data = null;
+    const xhr = new XMLHttpRequest();
+    xhr.timeout = 300001; //его можно не задавать, по умолчанию 30 секунд
 
+    xhr.addEventListener('error', () => {onError("Ошибка соединения")})
+    xhr.addEventListener('timeout', () => {onError(`Запрос не успел выполниться за ${xhr.timeout}мс`)})
+
+    xhr.addEventListener('load', () => {
+        switch (xhr.status) {
+            case 200: showData(xhr.response)
+                break;
+            default: onError(`Статус ответа: ${xhr.status}, ${xhr.statusText}`)
+        }
+    })
+
+    xhr.responseType = 'json';
+    xhr.open("GET", "https://brianiswu-cat-facts-v1.p.rapidapi.com/facts");
+    xhr.setRequestHeader("x-rapidapi-key", "fee2f886d4mshb128b759bb2ccfcp1ccc5cjsn7e8964df0879");
+    xhr.setRequestHeader("x-rapidapi-host", "brianiswu-cat-facts-v1.p.rapidapi.com");
+
+    //пишем всегда после обработчика load, так как ответ может придти раньше срабатывания обработчика
+    xhr.send(data);
+
+    //----------------------------------------------------------------------------------------------------
+    function showData(newData) {
+        const output = document.querySelector('.b-15_output');
+        newData.forEach(item => {
+            output.innerHTML += `&#60;li>${item.text}&#60;/li>`
+        })
+    }
+    function onError (text) {
+        console.error(text)
+        output.innerHTML += `&#60;li>${text}&#60;/li>`
+    }
+</pre>                    
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="idia b-14">
         <h3 class='title'>Дебаунсер</h3>
         <div class="example" id="b-14_back">
@@ -52,7 +101,7 @@
             <div class="border">
                 <h4 class="how-title btn-toggle">JS</h4>
                 <div class="drop-body">
-<pre>
+                    <pre>
     const btn = document.querySelector('#b-14_btn');
     const backGround = document.querySelector("#b-14_back")
     const arrColor = ['#fff', '#000', '#f2faaf', '#faccaf', '#ecaffa', '#faafaf', '#78a5ff']
@@ -61,7 +110,7 @@
     
     const onClickHandler = debounce(()=>{
         backGround.style.backgroundColor = arrColor[colorIndex];
-        if (colorIndex < arrColor.length - 1) colorIndex++;
+        if (colorIndex &#60; arrColor.length - 1) colorIndex++;
         else colorIndex = 0
     })
     btn.addEventListener('click', onClickHandler)
@@ -86,7 +135,7 @@
             }, DEBOUNCE_INTERVAL)
         }
     }
-</pre>                    
+</pre>
                 </div>
             </div>
         </div>
