@@ -234,14 +234,14 @@ out.innerHTML += elem2;
         let elasticItems = [...document.querySelectorAll('.b-13 .elastic-ul li')];
         if (val != '') {
             elasticItems.forEach(elem => {
-                if (elem.innerText.toLowerCase().search(val) == -1) {
+                if (elem.innerText.toLowerCase().indexOf(val) == -1) {
                     elem.classList.add('hide')
                     elem.innerHTML = elem.innerText
                 }
                 else {
                     elem.classList.remove('hide')
                     let str = elem.innerText
-                    elem.innerHTML = insertMark(str, elem.innerText.toLowerCase().search(val), val.length)
+                    elem.innerHTML = insertMark(str, elem.innerText.toLowerCase().indexOf(val), val.length)
                 }
             })
         } else {

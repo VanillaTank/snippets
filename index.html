@@ -172,14 +172,14 @@
         let elasticItems = [...document.querySelectorAll('.elastic-ul li')];
         if (val != '') {
           elasticItems.forEach(elem => {
-            if (elem.innerText.toLowerCase().search(val) == -1) {
+            if (elem.innerText.toLowerCase().indexOf(val) == -1) {
               elem.classList.add('hide')
               elem.innerHTML = elem.innerText
             }
             else {
               elem.classList.remove('hide')
               let str = elem.innerText
-              elem.innerHTML = insertMark(str, elem.innerText.toLowerCase().search(val), val.length)
+              elem.innerHTML = insertMark(str, elem.innerText.toLowerCase().indexOf(val), val.length)
             }
           })
         } else {
@@ -412,10 +412,13 @@
     top: 20px;
     right: 120px;
     background-color: transparent;
-    opacity: 0;
+    display: none;
 }
 .bl-10__form input[type=text]:focus+button[type=reset] {
-    opacity: 1;
+     display: block;
+}
+.bl-10__form button[type=reset]:active {
+    display: block;
 }
 .bl-10__form button[type=submit] {
     width: 100px;

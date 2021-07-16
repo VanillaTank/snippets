@@ -584,10 +584,13 @@ section {
     top: 20px;
     right: 120px;
     background-color: transparent;
-    opacity: 0;
+    display: none;
 }
 .bl-10__form input[type=text]:focus+button[type=reset] {
-    opacity: 1;
+    display: block;
+}
+.bl-10__form button[type=reset]:active {
+    display: block;
 }
 .bl-10__form button[type=submit] {
     width: 100px;
