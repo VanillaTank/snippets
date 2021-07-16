@@ -43,7 +43,7 @@
     <section class="idia b-15">
         <h3 class='title'>XMLHttpRequest</h3>
         <div class="example">
-            <h3>Факты про кошек</h3>
+            <h3>Факты про кошек с сервера</h3>
             <ul class="b-15_output"></ul>
         </div>
         <div class="description">
@@ -68,6 +68,8 @@
 
     xhr.responseType = 'json';
     xhr.open("GET", "https://brianiswu-cat-facts-v1.p.rapidapi.com/facts");
+
+    //индивидуальные настройки доступа к серверу
     xhr.setRequestHeader("x-rapidapi-key", "fee2f886d4mshb128b759bb2ccfcp1ccc5cjsn7e8964df0879");
     xhr.setRequestHeader("x-rapidapi-host", "brianiswu-cat-facts-v1.p.rapidapi.com");
 
