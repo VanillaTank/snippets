@@ -1,13 +1,13 @@
 window.onload = () => {
-    const btnToggles = document.querySelectorAll('.btn-toggle');
+  const btnToggles = document.querySelectorAll('.btn-toggle');
 
-    btnToggles.forEach(item => {
-        item.addEventListener('click', (e) => {
-            let currentBtn = e.target;
-            let currentDropBody = currentBtn.parentNode.querySelector('.drop-body');
-            currentDropBody.classList.toggle('open');
-        })
+  btnToggles.forEach(item => {
+    item.addEventListener('click', (e) => {
+      let currentBtn = e.target;
+      let currentDropBody = currentBtn.parentNode.querySelector('.drop-body');
+      currentDropBody.classList.toggle('open');
     })
+  })
 }
 
 // -------------------------------------------------------------------------------------
@@ -15,77 +15,77 @@ window.onload = () => {
 const shakeBlock = document.querySelector('.shakeBlock');
 const shakeBtn = document.querySelector('.shakeBtn');
 shakeBtn.addEventListener('click', () => {
-    shakeBlock.className = "shakeBlock fallingBlock";
-    shakeBlock.classList.remove('animForm-shake');
-    shakeBlock.scrollWidth = shakeBlock.scrollWidth;
-    shakeBlock.classList.add('animForm-shake');
+  shakeBlock.className = "shakeBlock fallingBlock";
+  shakeBlock.classList.remove('animForm-shake');
+  shakeBlock.scrollWidth = shakeBlock.scrollWidth;
+  shakeBlock.classList.add('animForm-shake');
 });
 
 const fallingBtn = document.querySelector('.fallingBtn');
 const fallingBlock = document.querySelector('.fallingBlock');
 fallingBtn.addEventListener('click', () => {
-    fallingBlock.className = "shakeBlock fallingBlock";
-    fallingBlock.classList.remove('animForm-falling');
-    fallingBlock.scrollWidth = fallingBlock.scrollWidth;
-    fallingBlock.classList.add('animForm-falling')
+  fallingBlock.className = "shakeBlock fallingBlock";
+  fallingBlock.classList.remove('animForm-falling');
+  fallingBlock.scrollWidth = fallingBlock.scrollWidth;
+  fallingBlock.classList.add('animForm-falling')
 });
 
 // -------------------------------------------------------------------------------------
 //Переворачивающиеся карточки(для телефонов)
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    const cards = document.querySelectorAll('.bl-1__card');
-    cards.forEach(item => {
-        item.addEventListener('click', (evt) => {
-            let currentCard = evt.target.parentNode;
-            if (evt.target.className == "bl-1__front") {
-                currentCard.childNodes[1].style.transform = 'rotateY(180deg)';
-                currentCard.childNodes[3].style.transform = 'rotateY(360deg)';
-            } else {
-                currentCard.childNodes[1].style.transform = 'rotateY(0deg)';
-                currentCard.childNodes[3].style.transform = 'rotateY(180deg)';
-            }
-        })
+  const cards = document.querySelectorAll('.bl-1__card');
+  cards.forEach(item => {
+    item.addEventListener('click', (evt) => {
+      let currentCard = evt.target.parentNode;
+      if (evt.target.className == "bl-1__front") {
+        currentCard.childNodes[1].style.transform = 'rotateY(180deg)';
+        currentCard.childNodes[3].style.transform = 'rotateY(360deg)';
+      } else {
+        currentCard.childNodes[1].style.transform = 'rotateY(0deg)';
+        currentCard.childNodes[3].style.transform = 'rotateY(180deg)';
+      }
     })
+  })
 }
 
 // -------------------------------------------------------------------------------------
 //Иммитация набора текста на JS
 const text = [
-    'Привет мир\n',
-    'Герда - лучшая чавчарка \nна свете\n',
-    'Собачки спасут мир'
+  'Привет мир\n',
+  'Герда - лучшая чавчарка \nна свете\n',
+  'Собачки спасут мир'
 ];
 const outText = document.querySelector('.bl-3__out-text');
 
 function typeText() {
-    let line = 0;
-    let count = 0;
-    let out = "";
+  let line = 0;
+  let count = 0;
+  let out = "";
 
-    function typeLine() {
-        //рисуем строку
-        let interval = setTimeout(function () {
-            out += text[line][count];
-            outText.innerText = out + "|";
-            count++;
-            // проверки
-            if (count >= text[line].length) {
-                count = 0;
-                line++;
-                if (line == text.length) {
-                    clearTimeout(interval);
-                    outText.innerText = out; //убираем типа курсор
-                    return true
-                }
-            }
-            typeLine();
-        }, getRandomInt(getRandomInt(380 * 2.5)))
-    }
-    typeLine()
+  function typeLine() {
+    //рисуем строку
+    let interval = setTimeout(function () {
+      out += text[line][count];
+      outText.innerText = out + "|";
+      count++;
+      // проверки
+      if (count >= text[line].length) {
+        count = 0;
+        line++;
+        if (line == text.length) {
+          clearTimeout(interval);
+          outText.innerText = out; //убираем типа курсор
+          return true
+        }
+      }
+      typeLine();
+    }, getRandomInt(getRandomInt(380 * 2.5)))
+  }
+  typeLine()
 }
 
 function getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max))
+  return Math.floor(Math.random() * Math.floor(max))
 }
 typeText()
 
@@ -105,14 +105,14 @@ zone4.ondragover = allowDrop;
 
 
 function allowDrop(event) {
-    event.preventDefault();
+  event.preventDefault();
 }
 
 lamp.ondragstart = drag;
 web.ondragstart = drag;
 
 function drag(event) {
-    event.dataTransfer.setData('id', event.target.id);
+  event.dataTransfer.setData('id', event.target.id);
 }
 zone1.ondrop = drop;
 zone2.ondrop = drop;
@@ -121,12 +121,12 @@ zone4.ondrop = drop;
 
 
 function drop(event) {
-    let itemId = event.dataTransfer.getData('id');
-    if (event.target.tagName != "IMG") {
-        event.target.append(document.getElementById(itemId));
-    } else {
-        event.target.parentNode.append(document.getElementById(itemId));
-    }
+  let itemId = event.dataTransfer.getData('id');
+  if (event.target.tagName != "IMG") {
+    event.target.append(document.getElementById(itemId));
+  } else {
+    event.target.parentNode.append(document.getElementById(itemId));
+  }
 }
 
 // -------------------------------------------------------------------------------------
@@ -151,157 +151,160 @@ out.innerHTML += elem2;
 // -------------------------------------------------------------------------------------
 // Перетаскивание и клик на одном элементе
 (function b11() {
-    const divParent = document.querySelector('.bl-11__ex-wrap')
-    const divTarget = document.querySelector('.bl-11__ex-inner')
+  const divParent = document.querySelector('.bl-11__ex-wrap')
+  const divTarget = document.querySelector('.bl-11__ex-inner')
 
-    divTarget.addEventListener('mousedown', (evt) => {
-        evt.preventDefault();
+  divTarget.addEventListener('mousedown', (evt) => {
+    evt.preventDefault();
 
-        let startCoords = {
-            x: evt.clientX,
-            y: evt.clientY
+    let startCoords = {
+      x: evt.clientX,
+      y: evt.clientY
+    }
+
+    let dragged = false;
+
+    function onMouseMove(moveEvt) {
+      moveEvt.preventDefault();
+      dragged = true;
+      let shift = {
+        x: startCoords.x - moveEvt.clientX,
+        y: startCoords.y - moveEvt.clientY
+      }
+
+      startCoords = {
+        x: moveEvt.clientX,
+        y: moveEvt.clientY
+      }
+
+      divParent.style.left = divParent.offsetLeft - shift.x + 'px';
+      divParent.style.top = divParent.offsetTop - shift.y + 'px';
+    }
+
+    function onMouseUp(evtUp) {
+      evtUp.preventDefault();
+
+      if (dragged) {
+        let onClickPreventDefault = function (evt) {
+          evt.preventDefault();
+          divTarget.removeEventListener('click', onClickPreventDefault)
         }
+        divTarget.addEventListener('click', onClickPreventDefault)
+      } else {
+        alert('click')
+      }
 
-        let dragged = false;
+      document.removeEventListener('mouseup', onMouseUp);
+      document.removeEventListener('mousemove', onMouseMove);
+    }
 
-        function onMouseMove(moveEvt) {
-            moveEvt.preventDefault();
-            dragged = true;
-            let shift = {
-                x: startCoords.x - moveEvt.clientX,
-                y: startCoords.y - moveEvt.clientY
-            }
-
-            startCoords = {
-                x: moveEvt.clientX,
-                y: moveEvt.clientY
-            }
-
-            divParent.style.left = divParent.offsetLeft - shift.x + 'px';
-            divParent.style.top = divParent.offsetTop - shift.y + 'px';
-        }
-
-        function onMouseUp(evtUp) {
-            evtUp.preventDefault();
-
-            if (dragged) {
-                let onClickPreventDefault = function (evt) {
-                    evt.preventDefault();
-                    divTarget.removeEventListener('click', onClickPreventDefault)
-                }
-                divTarget.addEventListener('click', onClickPreventDefault)
-            } else {
-                alert('click')
-            }
-
-            document.removeEventListener('mouseup', onMouseUp);
-            document.removeEventListener('mousemove', onMouseMove);
-        }
-
-        document.addEventListener('mousemove', onMouseMove);
-        document.addEventListener('mouseup', onMouseUp);
-    })
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp);
+  })
 
 })();
 // -------------------------------------------------------------------------------------
 // Изменение текста не активной вкладки
 (function b12() {
-    let timer;
-    let time = 1000;
-    let t = 'Сниппеты';
-    let i = './images/favicon.ico'
-    const ICON = './images/cow-icon.png';
-    const TEXT = '😊 Куда пошел????!';
+  let timer;
+  let time = 1000;
+  let t = 'Сниппеты';
+  let i = './images/favicon.ico'
+  const ICON = './images/cow-icon.png';
+  const TEXT = '😊 Куда пошел????!';
 
-    function changeTitle(icon, text) {
-        document.querySelector('head title').innerHTML = text;
-        document.querySelector('link[rel="shortcut icon"]').setAttribute('href', icon);
-    }
-    window.onblur = () => {
-        timer = setTimeout(() => { changeTitle(ICON, TEXT) }, time);
-    }
-    window.onfocus = () => {
-        clearTimeout(timer);
-        changeTitle(i, t)
-    }
+  function changeTitle(icon, text) {
+    document.querySelector('head title').innerHTML = text;
+    document.querySelector('link[rel="shortcut icon"]').setAttribute('href', icon);
+  }
+  window.onblur = () => {
+    timer = setTimeout(() => { changeTitle(ICON, TEXT) }, time);
+  }
+  window.onfocus = () => {
+    clearTimeout(timer);
+    changeTitle(i, t)
+  }
 })();
 
 // -------------------------------------------------------------------------------------
 //Живой поиск
 (function () {
-    document.querySelector('.b-13 #elastic').oninput = function () {
-        let val = this.value.toLowerCase();
-        let elasticItems = [...document.querySelectorAll('.b-13 .elastic-ul li')];
-        if (val != '') {
-            elasticItems.forEach(elem => {
-                if (elem.innerText.toLowerCase().indexOf(val) == -1) {
-                    elem.classList.add('hide')
-                    elem.innerHTML = elem.innerText
-                }
-                else {
-                    elem.classList.remove('hide')
-                    let str = elem.innerText
-                    elem.innerHTML = insertMark(str, elem.innerText.toLowerCase().indexOf(val), val.length)
-                }
-            })
-        } else {
-            elasticItems.forEach(elem => {
-                elem.classList.remove('hide')
-                elem.innerHTML = elem.innerText
-            })
-
+  document.querySelector('.b-13 #elastic').oninput = function () {
+    let val = this.value.toLowerCase();
+    let elasticItems = [...document.querySelectorAll('.b-13 .elastic-ul li')];
+    if (val != '') {
+      elasticItems.forEach(elem => {
+        if (elem.innerText.toLowerCase().indexOf(val) == -1) {
+          elem.classList.add('hide')
+          elem.innerHTML = elem.innerText
         }
-    }
+        else {
+          elem.classList.remove('hide')
+          let str = elem.innerText
+          elem.innerHTML = insertMark(str, elem.innerText.toLowerCase().indexOf(val), val.length)
+        }
+      })
+    } else {
+      elasticItems.forEach(elem => {
+        elem.classList.remove('hide')
+        elem.innerHTML = elem.innerText
+      })
 
-    function insertMark(string, pos, len) {
-        return string.slice(0, pos) + "<mark>" + string.slice(pos, pos + len) + "</mark>" + string.slice(pos + len);
     }
+  }
+
+  function insertMark(string, pos, len) {
+    return string.slice(0, pos) + "<mark>" + string.slice(pos, pos + len) + "</mark>" + string.slice(pos + len);
+  }
 })();
 
 
 // -------------------------------------------------------------------------------------
 //Дебаунсер
 (function () {
-    const btn = document.querySelector('#b-14_btn');
-    const backGround = document.querySelector("#b-14_back");
-    const output = document.querySelector('#b-14_output');
-    const arrColor = ['#fff', '#000', '#f2faaf', '#faccaf', '#ecaffa', '#faafaf', '#78a5ff']
-    let colorIndex = 0;
-    const input = document.querySelector('#b-14_btn-input');
+  const btn = document.querySelector('#b-14_btn');
+  const backGround = document.querySelector("#b-14_back");
+  const output = document.querySelector('#b-14_output');
+  const arrColor = ['#fff', '#000', '#f2faaf', '#faccaf', '#ecaffa', '#faafaf', '#78a5ff']
+  let colorIndex = 0;
+  const input = document.querySelector('#b-14_btn-input');
 
-    const onClickHandler = debounce(() => {
-        backGround.style.backgroundColor = arrColor[colorIndex];
-        if (colorIndex < arrColor.length - 1) colorIndex++;
-        else colorIndex = 0
-    })
-    btn.addEventListener('click', onClickHandler)
+  const onClickHandler = debounce(() => {
+    backGround.style.backgroundColor = arrColor[colorIndex];
+    if (colorIndex < arrColor.length - 1) colorIndex++;
+    else colorIndex = 0
+  })
+  btn.addEventListener('click', onClickHandler)
 
-    const keyupHandler = debounce(() => { output.innerText = input.value })
-    input.addEventListener('keyup', keyupHandler)
+  const keyupHandler = debounce(() => { output.innerText = input.value })
+  input.addEventListener('keyup', keyupHandler)
 
-    const DEBOUNCE_INTERVAL = 300;
-    function debounce(fun) {
-        let lastTimeout = null;
+  const DEBOUNCE_INTERVAL = 300;
+  function debounce(fun) {
+    let lastTimeout = null;
 
-        return function () {
-            const args = arguments;
-            if (lastTimeout) {
-                console.log(1);
-                window.clearTimeout(lastTimeout)
-            }
-            lastTimeout = window.setTimeout(function () {
-                lastTimeout = null;
-                fun.apply(null, args)
-            }, DEBOUNCE_INTERVAL)
-        }
+    return function () {
+      const args = arguments;
+      if (lastTimeout) {
+        console.log(1);
+        window.clearTimeout(lastTimeout)
+      }
+      lastTimeout = window.setTimeout(function () {
+        lastTimeout = null;
+        fun.apply(null, args)
+      }, DEBOUNCE_INTERVAL)
     }
+  }
 })();
 // -------------------------------------------------------------------------------------
 //XMLHttpRequest
 (function () {
+
+    const output = document.querySelector('.b-15_output');
+
     const data = null;
     const xhr = new XMLHttpRequest();
-    xhr.timeout = 300001; //его можно не задавать, по умолчанию 30 секунд
+    xhr.timeout = 30001; //его можно не задавать, по умолчанию 30 секунд
 
     xhr.addEventListener('error', () => { onError("Ошибка соединения") })
     xhr.addEventListener('timeout', () => { onError(`Запрос не успел выполниться за ${xhr.timeout}мс`) })
@@ -326,7 +329,6 @@ out.innerHTML += elem2;
 
     //----------------------------------------------------------------------------------------------------
     function showData(newData) {
-        const output = document.querySelector('.b-15_output');
         newData.forEach(item => {
             output.innerHTML += `<li>${item.text}</li>`
         })
@@ -335,4 +337,72 @@ out.innerHTML += elem2;
         console.error(text)
         output.innerHTML += `<li>${text}</li>`
     }
+})();
+
+// -------------------------------------------------------------------------------------
+//Клик по элементу Канваса
+(function () {
+
+  const canvas = document.getElementById('b-16_canvas');
+  const ctx = canvas.getContext('2d');
+  const windowHeigth = 300;
+  const windowWidth = 300;
+
+  canvas.width = windowWidth;
+  canvas.height = windowHeigth;
+  canvas.style.background = '#bbf'
+
+  class Circle {
+    constructor(xPoint, yPoint, radius, color) {
+      this.xPoint = xPoint;
+      this.yPoint = yPoint;
+      this.radius = radius;
+      this.color = color;
+    }
+
+    draw(ctx) {
+      ctx.beginPath();
+      ctx.arc(this.xPoint, this.yPoint, this.radius, 0, Math.PI * 2, false)
+      ctx.strokeStyle = 'grey';
+      ctx.lineWidth = 1;
+      ctx.fillStyle = this.color;
+      ctx.fill();
+      ctx.stroke();
+      ctx.closePath();
+    }
+
+    changeColor(newColor) {
+      this.color = newColor;
+      this.draw(ctx);
+    }
+
+    clickCircle(xMouse, yMouse) {
+      const distance =
+        Math.sqrt(
+          ((xMouse - this.xPoint) * (xMouse - this.xPoint))
+          +
+          ((yMouse - this.yPoint) * (yMouse - this.yPoint))
+        );
+
+      if (distance <= this.radius) {
+        this.changeColor('#56f')
+        return true;
+      } else {
+        this.changeColor('#f56')
+        return false;
+      }
+
+    }
+  }
+
+  let circle = new Circle(150, 150, 50, '#f56');
+  circle.draw(ctx)
+
+  canvas.addEventListener('click', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    circle.clickCircle(x, y)
+  })
+
 })();
