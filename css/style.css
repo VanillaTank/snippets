@@ -703,7 +703,14 @@ section {
     background-color: transparent;
     margin-bottom: 1px;
 }
-
+/* Клик по элементу Канваса */
 .b-16 .example {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.b-17 .example {
     padding: 10px 30px;
 }
+

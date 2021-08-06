@@ -41,7 +41,7 @@
             </div>
         </section> -->
 
-    <section class="idia b-16">
+    <section class="idia b-17">
         <h3 class='title'>Связывание локального проекта с гитом</h3>
         <div class="example">
             git init <br>
@@ -50,10 +50,89 @@
             git remote add myRepo(имя удаленного репозитория) &#60;HTTPS> <br>
             git push -u myRepo(имя удаленного репозитория) master(имя ветки) <br>
             <br>
-            Потом гитхаб можно почистить, сделать ветку master основной settings > brunches в &#60;>Code > ветки > view all brunches
+            Потом гитхаб можно почистить, сделать ветку master основной settings > brunches в &#60;>Code > ветки > view
+            all brunches
 
         </div>
     </section>
+
+    <section class="idia b-16">
+        <h3 class='title'>Клик по элементу Канваса</h3>
+        <div class="example">
+            <canvas id="b-16_canvas"></canvas>
+        </div>
+        <div class="description">
+            <div class="border">
+                <h4 class="how-title btn-toggle">JS</h4>
+                <div class="drop-body">
+                    <pre>
+  const canvas = document.getElementById('b-16_canvas');
+  const ctx = canvas.getContext('2d');
+  const windowHeigth = 300;
+  const windowWidth = 300;
+
+  canvas.width = windowWidth;
+  canvas.height = windowHeigth;
+  canvas.style.background = '#bbf'
+
+  class Circle {
+    constructor(xPoint, yPoint, radius, color) {
+      this.xPoint = xPoint;
+      this.yPoint = yPoint;
+      this.radius = radius;
+      this.color = color;
+    }
+
+    draw(ctx) {
+      ctx.beginPath();
+      ctx.arc(this.xPoint, this.yPoint, this.radius, 0, Math.PI * 2, false)
+      ctx.strokeStyle = 'grey';
+      ctx.lineWidth = 1;
+      ctx.fillStyle = this.color;
+      ctx.fill();
+      ctx.stroke();
+      ctx.closePath();
+    }
+
+    changeColor(newColor) {
+      this.color = newColor;
+      this.draw(ctx);
+    }
+
+    clickCircle(xMouse, yMouse) {
+      const distance =
+        Math.sqrt(
+          ((xMouse - this.xPoint) * (xMouse - this.xPoint))
+          +
+          ((yMouse - this.yPoint) * (yMouse - this.yPoint))
+        );
+
+      if (distance &#60;= this.radius) {
+        this.changeColor('#56f')
+        return true;
+      } else {
+        this.changeColor('#f56')
+        return false;
+      }
+
+    }
+  }
+
+  let circle = new Circle(150, 150, 50, '#f56');
+  circle.draw(ctx)
+
+  canvas.addEventListener('click', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    circle.clickCircle(x, y)
+  })
+</pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="idia b-15">
         <h3 class='title'>XMLHttpRequest</h3>
         <div class="example">
@@ -65,9 +144,13 @@
                 <h4 class="how-title btn-toggle">JS</h4>
                 <div class="drop-body">
                     <pre>
+<<<<<<< HEAD
+=======
+    const output = document.querySelector('.b-15_output');
+>>>>>>> 061dca23c611cbc4a40de574a2a8ebe859faf1b1
     const data = null;
     const xhr = new XMLHttpRequest();
-    xhr.timeout = 300001; //его можно не задавать, по умолчанию 30 секунд
+    xhr.timeout = 30001; //его можно не задавать, по умолчанию 30 секунд
 
     xhr.addEventListener('error', () => {onError("Ошибка соединения")})
     xhr.addEventListener('timeout', () => {onError(`Запрос не успел выполниться за ${xhr.timeout}мс`)})
@@ -92,7 +175,6 @@
 
     //----------------------------------------------------------------------------------------------------
     function showData(newData) {
-        const output = document.querySelector('.b-15_output');
         newData.forEach(item => {
             output.innerHTML += `&#60;li>${item.text}&#60;/li>`
         })
