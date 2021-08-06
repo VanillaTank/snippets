@@ -40,6 +40,20 @@
                 </div>
             </div>
         </section> -->
+
+    <section class="idia b-16">
+        <h3 class='title'>Связывание локального проекта с гитом</h3>
+        <div class="example">
+            git init <br>
+            git add . <br>
+            git commit -m "Текст комментария" <br>
+            git remote add myRepo(имя удаленного репозитория) &#60;HTTPS> <br>
+            git push -u myRepo(имя удаленного репозитория) master(имя ветки) <br>
+            <br>
+            Потом гитхаб можно почистить, сделать ветку master основной settings > brunches в &#60;>Code > ветки > view all brunches
+
+        </div>
+    </section>
     <section class="idia b-15">
         <h3 class='title'>XMLHttpRequest</h3>
         <div class="example">
@@ -50,7 +64,7 @@
             <div class="border">
                 <h4 class="how-title btn-toggle">JS</h4>
                 <div class="drop-body">
-<pre>
+                    <pre>
     const data = null;
     const xhr = new XMLHttpRequest();
     xhr.timeout = 300001; //его можно не задавать, по умолчанию 30 секунд
@@ -87,7 +101,7 @@
         console.error(text)
         output.innerHTML += `&#60;li>${text}&#60;/li>`
     }
-</pre>                    
+</pre>
                 </div>
             </div>
         </div>

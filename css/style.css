@@ -703,3 +703,7 @@ section {
     background-color: transparent;
     margin-bottom: 1px;
 }
+
+.b-16 .example {
+    padding: 10px 30px;
+}
