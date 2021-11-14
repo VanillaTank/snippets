@@ -5,6 +5,8 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -43,8 +45,7 @@ body {
   line-height: 24px;
   font-weight: 400;
 
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 100%;
 }
 .title {
   text-align: center;
@@ -72,9 +73,10 @@ body {
   border: 1px solid #2fa10c;
 }
 section {
-  margin-bottom: 50px;
   border: 1px solid #000000;
   border-top: none;
+  max-width: 1300px;
+  margin: 0 auto 50px;
 }
 .how-title {
   background-color: rgb(249 255 177);
@@ -95,6 +97,7 @@ section {
   height: 0;
 }
 .open {
+  padding-top: 20px;
   height: auto;
 }
 .border {
@@ -879,4 +882,62 @@ section {
 /* Checked and focused */
 .b-18 .second-way .check-input:checked:disabled + .check-box {
   background-color: #9b9b9b;
+}
+
+/* Вставка видео на фон */
+.for_b-19 {
+  position: relative;
+  background-color: #fff;
+}
+.b-19 .example {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+.b-19 .description {
+  position: relative;
+  background-color: #fff;
+  padding: 25px 20px;
+  margin: 0;
+}
+.b-19 .container {
+  min-height: 100%;
+}
+.b-19 .full-screen-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.b-19 .content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex: 0 1 auto;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.b-19 .content-title {
+  color: #fff;
+  font-size: 80px;
+  letter-spacing: 5px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.b-19 .content-subtitle {
+  color: #fff;
+  margin-top: 40px;
+  font-size: 18px;
+}
+.b-19 .content-list {
+  color: #fff;
+  margin-top: 20px;
 }
