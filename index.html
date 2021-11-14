@@ -41,6 +41,212 @@
             </div>
         </section> -->
 
+
+
+        <section class="idia b-18">
+            <h3 class='title'>Кастомные чек-боксы</h3>
+            <div class="example">
+
+                <div class="first-way">
+                    Первый способ с картинками
+
+                    <label class="option">
+                        <input class="check-input" type="checkbox">
+                        <span class="check-box"></span>
+                        Первый
+                    </label>
+
+                    <label class="option">
+                        <input class="check-input" type="checkbox" checked>
+                        <span class="check-box"></span>
+                        Второй
+                    </label>
+
+                    <label class="option">
+                        <input class="check-input" type="checkbox" disabled>
+                        <span class="check-box"></span>
+                        Третий
+                    </label>
+
+                    <label class="option">
+                        <input class="check-input" type="checkbox" checked disabled>
+                        <span class="check-box"></span>
+                        Четвертый
+                    </label>
+
+                </div>
+
+                <div class="second-way">
+                    Второй способ только с CSS
+
+                    <label class="option">
+                        <input class="check-input" type="checkbox">
+                        <span class="check-box"></span>
+                        Первый
+                    </label>
+
+                    <label class="option">
+                        <input class="check-input" type="checkbox" checked>
+                        <span class="check-box"></span>
+                        Второй
+                    </label>
+
+                    <label class="option">
+                        <input class="check-input" type="checkbox" disabled>
+                        <span class="check-box"></span>
+                        Третий
+                    </label>
+
+                    <label class="option">
+                        <input class="check-input" type="checkbox" checked disabled>
+                        <span class="check-box"></span>
+                        Четвертый
+                    </label>
+
+                </div>
+            </div>
+
+            <div class="description">
+                <div class="border">
+                    <h4 class="how-title btn-toggle">HTML</h4>
+                    <div class="drop-body">
+    <pre>
+    &#60;label class="option">
+        &#60;input class="check-input" type="checkbox">
+        &#60;span class="check-box"></span>
+        Первый
+    &#60;/label>
+
+    &#60;label class="option">
+        &#60;input class="check-input" type="checkbox" checked>
+        &#60;span class="check-box"></span>
+        Второй
+    &#60;/label>
+
+    &#60;label class="option">
+        &#60;input class="check-input" type="checkbox" disabled>
+        &#60;span class="check-box"></span>
+        Третий
+    &#60;/label>
+
+    &#60;label class="option">
+        &#60;input class="check-input" type="checkbox" checked disabled>
+        &#60;span class="check-box"></span>
+        Четвертый
+    &#60;/label>
+    </pre>
+                    </div>
+                </div>
+                <div class="border">
+                    <h4 class="how-title btn-toggle">CSS</h4>
+                    <div class="drop-body">
+                        <div class="row">
+                            <div class="col">
+                                <h5>Common CSS</h5> 
+<pre>
+.b-18 .option {
+    display: block;
+    margin-bottom: 0.25em;
+    user-select: none;
+}
+.b-18 .check {
+    padding-left: 1.2em;
+}
+.b-18 .check-input {
+    /* Скрываем для Chrome и Firefox */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: a                                      
+    /* Скрываем для Egde */
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+}
+</pre>
+                            </div>
+
+                            <div class="col">
+                                <h5>CSS с картинками</h5> 
+<pre>
+.b-18 .first-way .check-box {
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    background-image: url("../images/off.svg");
+    margin-left: -1.2em;
+}
+
+/* Checked */
+.b-18 .first-way .check-input:checked + .check-box {
+    background-image: url("../images/on.svg");
+}
+      
+/* Focused */
+.b-18 .first-way .check-input:focus + .check-box {
+    background-image: url("../images/off-focused.svg");
+}
+
+/* Checked and focused */
+.b-18 .first-way .check-input:checked:focus + .check-box {
+    background-image: url("../images/on-focused.svg");
+}
+      
+/* Disabled */
+.b-18 .first-way .check-input:disabled + .check-box {
+    background-image: url("../images/off-disabled.svg");
+}
+      
+/* Checked and focused */
+.b-18 .first-way .check-input:checked:disabled + .check-box {
+    background-image: url("../images/on-disabled.svg");
+}
+</pre>
+                            </div>
+
+                            <div class="col">
+                                <h5>Only CSS</h5> 
+<pre>
+.b-18 .second-way .check-box {
+    position: absolute;
+    width: 0.6em;
+    height: 0.6em;
+    box-shadow: 0 0 0 0.1em #4a90e2;
+    margin-left: -1em;
+    margin-top: 0.2em;
+    background-color: #fff;
+    border-radius: 0.05em;
+}
+/* Checked */
+.b-18 .second-way .check-input:checked + .check-box {
+    background-color: #4a90e2;
+    background-image: url("../images/check.svg");
+}
+      
+/* Focused */
+.b-18 .second-way .check-input:focus + .check-box {
+    box-shadow: 0 0 0 0.1em #4a90e2, 0 0 0 0.2em #7ed321;
+}
+      
+/* Disabled */
+.b-18 .second-way .check-input:disabled + .check-box {
+    box-shadow: 0 0 0 0.1em #9b9b9b;
+}
+      
+/* Checked and focused */
+.b-18 .second-way .check-input:checked:disabled + .check-box {
+    background-color: #9b9b9b;
+}
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
     <section class="idia b-17">
         <h3 class='title'>Связывание локального проекта с гитом</h3>
         <div class="example">
