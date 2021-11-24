@@ -890,12 +890,13 @@ section {
   background-color: #fff;
 }
 .b-19 .example {
-  min-height: 100vh;
+  height: 100vh;
   position: relative;
   display: flex;
   flex-direction: column;
   margin-bottom: 0;
 }
+
 .b-19 .description {
   position: relative;
   background-color: #fff;
@@ -906,7 +907,7 @@ section {
   min-height: 100%;
 }
 .b-19 .full-screen-video {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -915,10 +916,11 @@ section {
   z-index: 0;
 }
 .b-19 .content {
+  height: 100%;
   position: relative;
   z-index: 2;
   display: flex;
-  flex: 0 1 auto;
+  flex: 0 0 auto;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -940,4 +942,14 @@ section {
 .b-19 .content-list {
   color: #fff;
   margin-top: 20px;
+}
+
+/* Цветной console.log() */
+.b-20 .example {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.b-20 .example img {
+  border: 1px solid #e6e6e6;
 }
