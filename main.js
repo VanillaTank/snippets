@@ -433,3 +433,11 @@ out.innerHTML += elem2;
     circle.clickCircle(x, y);
   });
 })();
+
+// -------------------------------------------------------------------------------------
+//Масштабирование фото (input[type="range"])
+const photo_b21 = document.querySelector('#b-21_photo');
+function resize_photo () {
+ const delta = document.querySelector('#b-21_scale').value;
+ photo_b21.width = 20 * delta;
+}

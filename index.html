@@ -41,68 +41,101 @@
             </div>
         </section> -->
 
-        <section class="idia b-20">
-            <h3 class='title'>Цветной console.log()</h3>
-            <div class="example">
-                <img src="./images/console.jpg" alt="Пример console.log()">
+    <section class="idia b-21">
+        <h3 class='title'>Масштабирование фото (input[type="range"])</h3>
+        <div class="example">
+            <img src="./images/3.jpg" alt="Парк" id="b-21_photo" width="200">
+            <input type="range" id="b-21_scale" value="10" min="1" max="50" step="1" oninput="resize_photo()">
+        </div>
+        <div class="description">
+            <div class="border">
+                <h4 class="how-title btn-toggle">HTML</h4>
+                <div class="drop-body">
+                    <pre>
+    &#60;img src="./images/3.jpg" alt="Парк" id="b-21_photo" width="200">
+    &#60;input type="range" id="b-21_scale" value="10" min="0" max="50" step="1" oninput="resize_photo()">           
+
+</pre>
+                </div>
             </div>
-            <div class="description">
-                <div class="border">
-                    <h4 class="how-title btn-toggle">JS</h4>
-                    <div class="drop-body">
-<pre>
+            <div class="border">
+                <h4 class="how-title btn-toggle">JS</h4>
+                <div class="drop-body">
+                    <pre>
+    const photo_b21 = document.querySelector('#b-21_photo');    
+    function resize_photo () {
+        const delta = document.querySelector('#b-21_scale').value;
+        photo_b21.width = 20 * delta; //20 подобрано вручную
+    }      
+
+</pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="idia b-20">
+        <h3 class='title'>Цветной console.log()</h3>
+        <div class="example">
+            <img src="./images/console.jpg" alt="Пример console.log()">
+        </div>
+        <div class="description">
+            <div class="border">
+                <h4 class="how-title btn-toggle">JS</h4>
+                <div class="drop-body">
+                    <pre>
   console.log("%cкукуски", "font-size:20px;color:blue;");
   console.log( "%c%s%c%s",
     "font-size:20px;color:green;", "в небе ангелочки ",
     "font-size:20px;color:red;", "нюхают цветочки"
   );
 
-</pre>                        
-                    </div>
+</pre>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="idia b-19">
-            <h3 class='title'>Вставка видео на фон</h3>
-            <div class="example">
-                <div class="content">
-                    <h1 class="content-title">Список книг про счастье: </h1>
-                    <p class="content-subtitle">Со всех концов света.</p>
+    <section class="idia b-19">
+        <h3 class='title'>Вставка видео на фон</h3>
+        <div class="example">
+            <div class="content">
+                <h1 class="content-title">Список книг про счастье: </h1>
+                <p class="content-subtitle">Со всех концов света.</p>
 
-                        <div class="content-inner-wrap">
-                            <ul class="content-list">
-                                <li class="content-list-item">
-                                    - Хюгге. Уютное счатье по датски.
-                                </li>
-                                <li class="content-list-item">
-                                    - Проект "Счастье"
-                                </li>
-                                <li class="content-list-item">
-                                    - К себе нежно
-                                </li>
-                            </ul>
-                        </div>
+                <div class="content-inner-wrap">
+                    <ul class="content-list">
+                        <li class="content-list-item">
+                            - Хюгге. Уютное счатье по датски.
+                        </li>
+                        <li class="content-list-item">
+                            - Проект "Счастье"
+                        </li>
+                        <li class="content-list-item">
+                            - К себе нежно
+                        </li>
+                    </ul>
                 </div>
-                <video class="full-screen-video" preload="auto" autoplay muted loop>
-                    <source type="video/webm" src="./video/forest.webm">
-                    <source type="video/mp4" src="./video/forest.mp4">
-                </video>
-
             </div>
-            
-        </section>
-     
+            <video class="full-screen-video" preload="auto" autoplay muted loop>
+                <source type="video/webm" src="./video/forest.webm">
+                <source type="video/mp4" src="./video/forest.mp4">
+            </video>
+
+        </div>
+
+    </section>
+
 
 
     <div class="for_b-19">
 
         <section class='b-19'>
-    <div class="description">
+            <div class="description">
                 <div class="border">
                     <h4 class="how-title btn-toggle">HTML</h4>
                     <div class="drop-body">
-<pre>
+                        <pre>
     &#60;div class="content">
         &#60;h1 class="content-title">Список книг про счастье: </h1>
         &#60;p class="content-subtitle">Со всех концов света.</p>
@@ -131,7 +164,7 @@
                 <div class="border">
                     <h4 class="how-title btn-toggle">CSS</h4>
                     <div class="drop-body">
-<pre>
+                        <pre>
     .for_b-19 {     // дать следующему блоку, чтобы он был поверх видео
         position: relative;
         padding: 100px 20px;
@@ -172,7 +205,7 @@
                     </div>
                 </div>
             </div>
-</section>   
+        </section>
 
         <section class="idia b-18">
             <h3 class='title'>Кастомные чек-боксы</h3>
@@ -241,7 +274,7 @@
                 <div class="border">
                     <h4 class="how-title btn-toggle">HTML</h4>
                     <div class="drop-body">
-    <pre>
+                        <pre>
     &#60;label class="option">
         &#60;input class="check-input" type="checkbox">
         &#60;span class="check-box"></span>
@@ -273,8 +306,8 @@
                     <div class="drop-body">
                         <div class="row">
                             <div class="col">
-                                <h5>Common CSS</h5> 
-<pre>
+                                <h5>Common CSS</h5>
+                                <pre>
 .b-18 .option {
     display: block;
     margin-bottom: 0.25em;
@@ -299,8 +332,8 @@
                             </div>
 
                             <div class="col">
-                                <h5>CSS с картинками</h5> 
-<pre>
+                                <h5>CSS с картинками</h5>
+                                <pre>
 .b-18 .first-way .check-box {
     position: absolute;
     width: 1em;
@@ -337,8 +370,8 @@
                             </div>
 
                             <div class="col">
-                                <h5>Only CSS</h5> 
-<pre>
+                                <h5>Only CSS</h5>
+                                <pre>
 .b-18 .second-way .check-box {
     position: absolute;
     width: 0.6em;
@@ -378,31 +411,32 @@
             </div>
         </section>
 
-    <section class="idia b-17">
-        <h3 class='title'>Связывание локального проекта с гитом</h3>
-        <div class="example">
-            git init <br>
-            git add . <br>
-            git commit -m "Текст комментария" <br>
-            git remote add myRepo(имя удаленного репозитория) &#60;HTTPS> <br>
-            git push -u myRepo(имя удаленного репозитория) master(имя ветки) <br>
-            <br>
-            Потом гитхаб можно почистить, сделать ветку master основной settings > brunches в &#60;>Code > ветки > view
-            all brunches
+        <section class="idia b-17">
+            <h3 class='title'>Связывание локального проекта с гитом</h3>
+            <div class="example">
+                git init <br>
+                git add . <br>
+                git commit -m "Текст комментария" <br>
+                git remote add myRepo(имя удаленного репозитория) &#60;HTTPS> <br>
+                git push -u myRepo(имя удаленного репозитория) master(имя ветки) <br>
+                <br>
+                Потом гитхаб можно почистить, сделать ветку master основной settings > brunches в &#60;>Code > ветки >
+                view
+                all brunches
 
-        </div>
-    </section>
+            </div>
+        </section>
 
-    <section class="idia b-16">
-        <h3 class='title'>Клик по элементу Канваса</h3>
-        <div class="example">
-            <canvas id="b-16_canvas"></canvas>
-        </div>
-        <div class="description">
-            <div class="border">
-                <h4 class="how-title btn-toggle">JS</h4>
-                <div class="drop-body">
-                    <pre>
+        <section class="idia b-16">
+            <h3 class='title'>Клик по элементу Канваса</h3>
+            <div class="example">
+                <canvas id="b-16_canvas"></canvas>
+            </div>
+            <div class="description">
+                <div class="border">
+                    <h4 class="how-title btn-toggle">JS</h4>
+                    <div class="drop-body">
+                        <pre>
   const canvas = document.getElementById('b-16_canvas');
   const ctx = canvas.getContext('2d');
   const windowHeigth = 300;
@@ -465,22 +499,22 @@
     circle.clickCircle(x, y)
   })
 </pre>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="idia b-15">
-        <h3 class='title'>XMLHttpRequest</h3>
-        <div class="example">
-            <h3>Факты про кошек с сервера</h3>
-            <ul class="b-15_output"></ul>
-        </div>
-        <div class="description">
-            <div class="border">
-                <h4 class="how-title btn-toggle">JS</h4>
-                <div class="drop-body">
-                    <pre>
+        <section class="idia b-15">
+            <h3 class='title'>XMLHttpRequest</h3>
+            <div class="example">
+                <h3>Факты про кошек с сервера</h3>
+                <ul class="b-15_output"></ul>
+            </div>
+            <div class="description">
+                <div class="border">
+                    <h4 class="how-title btn-toggle">JS</h4>
+                    <div class="drop-body">
+                        <pre>
 <<<<<<< HEAD
 =======
     const output = document.querySelector('.b-15_output');
@@ -521,22 +555,22 @@
         output.innerHTML += `&#60;li>${text}&#60;/li>`
     }
 </pre>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="idia b-14">
-        <h3 class='title'>Дебаунсер</h3>
-        <div class="example" id="b-14_back">
-            <div class="btn" id="b-14_btn">Изменить цвет</div>
-            <input type="text" id="b-14_btn-input" placeholder="Введите что-нибудь">
-            <p id='b-14_output'></p>
-        </div>
-        <div class="description">
-            <div class="border">
-                <h4 class="how-title btn-toggle">JS</h4>
-                <div class="drop-body">
-                    <pre>
+        </section>
+        <section class="idia b-14">
+            <h3 class='title'>Дебаунсер</h3>
+            <div class="example" id="b-14_back">
+                <div class="btn" id="b-14_btn">Изменить цвет</div>
+                <input type="text" id="b-14_btn-input" placeholder="Введите что-нибудь">
+                <p id='b-14_output'></p>
+            </div>
+            <div class="description">
+                <div class="border">
+                    <h4 class="how-title btn-toggle">JS</h4>
+                    <div class="drop-body">
+                        <pre>
     const btn = document.querySelector('#b-14_btn');
     const backGround = document.querySelector("#b-14_back")
     const arrColor = ['#fff', '#000', '#f2faaf', '#faccaf', '#ecaffa', '#faafaf', '#78a5ff']
@@ -571,35 +605,35 @@
         }
     }
 </pre>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <section class="idia b-13">
-        <h3 class='title'>Живой поиск</h3>
-        <div class="example">
-            <div class="container">
-                <input type="text" id="elastic">
-                <ul class="elastic-ul">
-                    <li>Астра</li>
-                    <li>Альстермерия</li>
-                    <li>Тобернамонтана</li>
-                    <li>Азалия</li>
-                    <li>Рододендрон</li>
-                    <li>Фаленопсис дендробиум</li>
-                    <li>Каттлея</li>
-                    <li>Аквелегия</li>
-                    <li>Астильба</li>
+        </section>
+        <section class="idia b-13">
+            <h3 class='title'>Живой поиск</h3>
+            <div class="example">
+                <div class="container">
+                    <input type="text" id="elastic">
+                    <ul class="elastic-ul">
+                        <li>Астра</li>
+                        <li>Альстермерия</li>
+                        <li>Тобернамонтана</li>
+                        <li>Азалия</li>
+                        <li>Рододендрон</li>
+                        <li>Фаленопсис дендробиум</li>
+                        <li>Каттлея</li>
+                        <li>Аквелегия</li>
+                        <li>Астильба</li>
 
-                </ul>
+                    </ul>
+                </div>
             </div>
-        </div>
-        
-        <div class="description">
-            <div class="border">
-                <h4 class="how-title btn-toggle">JS</h4>
-                <div class="drop-body">
-                    <pre>
+
+            <div class="description">
+                <div class="border">
+                    <h4 class="how-title btn-toggle">JS</h4>
+                    <div class="drop-body">
+                        <pre>
     document.querySelector('#elastic').oninput = function () {
         let val = this.value.toLowerCase();
         let elasticItems = [...document.querySelectorAll('.elastic-ul li')];
@@ -630,23 +664,23 @@
         return string.slice(0, pos) + "&#60;mark>" + string.slice(pos, pos + len) + "&#60;/mark>" + string.slice(pos + len);
       }
 </pre>
+                    </div>
                 </div>
-            </div>
 
-        </div>
-    </section>
-    <section class="idia b-12">
-        <h3 class='title'>Изменение текста не активной вкладки</h3>
-        <div class="example">
-            Эмоджи берем из телеги, например.</br>
-            Чтобы посмотерть, как это работает, открой рядом другую вкладку и перейди на нее.
-            Сейчас таймер изменения установлен на 1 секунду.
-        </div>
-        <div class="description">
-            <div class="border">
-                <h4 class="how-title btn-toggle">JS</h4>
-                <div class="drop-body">
-                    <pre>
+            </div>
+        </section>
+        <section class="idia b-12">
+            <h3 class='title'>Изменение текста не активной вкладки</h3>
+            <div class="example">
+                Эмоджи берем из телеги, например.</br>
+                Чтобы посмотерть, как это работает, открой рядом другую вкладку и перейди на нее.
+                Сейчас таймер изменения установлен на 1 секунду.
+            </div>
+            <div class="description">
+                <div class="border">
+                    <h4 class="how-title btn-toggle">JS</h4>
+                    <div class="drop-body">
+                        <pre>
     function b12() {
         let timer;
         let time = 1000;
@@ -668,25 +702,25 @@
         }
     }
 </pre>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="idia bl-11">
+            <h3 class='title'>Перетаскивание и клик на одном элементе</h3>
+            <div class="example bl-11__example" title="bl-11__example">
+                <div class="bl-11__ex-wrap" title="bl-11__ex-wrap">
+                    <div class="bl-11__ex-inner" title="bl-11__ex-inner"></div>
                 </div>
             </div>
 
-        </div>
-    </section>
-
-    <section class="idia bl-11">
-        <h3 class='title'>Перетаскивание и клик на одном элементе</h3>
-        <div class="example bl-11__example" title="bl-11__example">
-            <div class="bl-11__ex-wrap" title="bl-11__ex-wrap">
-                <div class="bl-11__ex-inner" title="bl-11__ex-inner"></div>
-            </div>
-        </div>
-
-        <div class="description">
-            <div class="border">
-                <h4 class="how-title btn-toggle">CSS</h4>
-                <div class="drop-body">
-                    <pre>
+            <div class="description">
+                <div class="border">
+                    <h4 class="how-title btn-toggle">CSS</h4>
+                    <div class="drop-body">
+                        <pre>
     .bl-11__example{
         height: 120px;
         position: relative;
@@ -708,12 +742,12 @@
         cursor: pointer;
     }
 </pre>
+                    </div>
                 </div>
-            </div>
-            <div class="border">
-                <h4 class="how-title btn-toggle">JS</h4>
-                <div class="drop-body">
-                    <pre>
+                <div class="border">
+                    <h4 class="how-title btn-toggle">JS</h4>
+                    <div class="drop-body">
+                        <pre>
     const divParent = document.querySelector('.bl-11__ex-wrap')
     const divTarget = document.querySelector('.bl-11__ex-inner')
 
@@ -766,35 +800,35 @@
         document.addEventListener('mouseup', onMouseUp);
     } )
 </pre>
+                    </div>
                 </div>
+
             </div>
-
-        </div>
-    </section>
+        </section>
 
 
-    <section class="idia">
-        <h3 class='title'>Инпут с крестиком очистки</h3>
-        <div class="example bl-10">
-            <form class="bl-10__form">
-                <input type="text">
-                <button type="reset">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16 8L8 16" stroke="#ADB3AE" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round"></path>
-                        <path d="M16 16L8 8" stroke="#ADB3AE" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round"></path>
-                    </svg>
-                </button>
-                <button type="submit">Отправить</button>
-            </form>
-        </div>
-        <div class="description">
+        <section class="idia">
+            <h3 class='title'>Инпут с крестиком очистки</h3>
+            <div class="example bl-10">
+                <form class="bl-10__form">
+                    <input type="text">
+                    <button type="reset">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 8L8 16" stroke="#ADB3AE" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                            <path d="M16 16L8 8" stroke="#ADB3AE" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                    </button>
+                    <button type="submit">Отправить</button>
+                </form>
+            </div>
+            <div class="description">
 
-            <div class="border">
-                <h4 class="how-title btn-toggle">HTML</h4>
-                <div class="drop-body">
-                    <pre>
+                <div class="border">
+                    <h4 class="how-title btn-toggle">HTML</h4>
+                    <div class="drop-body">
+                        <pre>
 &#60;form class="bl-10__form">
     &#60;input type="text">
     &#60;button type="reset">
@@ -806,15 +840,15 @@
     &#60;button type="submit">Отправить&#60;/button>
 &#60;/form>
 </pre>
+                    </div>
                 </div>
-            </div>
 
 
-            <div class="border">
-                <h4 class="how-title btn-toggle">СSS</h4>
-                <div class="row drop-body">
-                    <div class="col">
-                        <pre>
+                <div class="border">
+                    <h4 class="how-title btn-toggle">СSS</h4>
+                    <div class="row drop-body">
+                        <div class="col">
+                            <pre>
 .bl-10__form {
     width: 500px;
     margin: 20px auto;
@@ -835,11 +869,11 @@
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
 }</pre>
-                    </div>
+                        </div>
 
 
-                    <div class="col">
-                        <pre>
+                        <div class="col">
+                            <pre>
 .bl-10__form button[type=reset] {
     position: absolute;
     top: 20px;
@@ -862,27 +896,27 @@
     border-bottom-right-radius: 4px;
 }</pre>
 
+                        </div>
                     </div>
                 </div>
+
+            </div>
+        </section>
+
+
+        <section class="idia">
+            <h3 class='title'>Каррирование</h3>
+            <div class="example out">
+
             </div>
 
-        </div>
-    </section>
-
-
-    <section class="idia">
-        <h3 class='title'>Каррирование</h3>
-        <div class="example out">
-
-        </div>
-
-        <div class="description">
-            <h4 class="how-title">Снипет быстрого добавления элмента в ДОМ</h4>
-            <p>Каррирование - преобразование функции с несколькими агрументами к набору
-                унарных (один агрумент) функций. Способ имеет недостатки, например, тройное сальто вместо
-                шага вперед. И это пример использования каррирования, созданного как паттерн для удобства
-            </p>
-            <pre>
+            <div class="description">
+                <h4 class="how-title">Снипет быстрого добавления элмента в ДОМ</h4>
+                <p>Каррирование - преобразование функции с несколькими агрументами к набору
+                    унарных (один агрумент) функций. Способ имеет недостатки, например, тройное сальто вместо
+                    шага вперед. И это пример использования каррирования, созданного как паттерн для удобства
+                </p>
+                <pre>
 const out = document.querySelector('.out');
 let t = (tag, classes) => text => `<${tag} class="${classes.join(' ')}">${text}&#60;/${tag}>`;
 
@@ -899,231 +933,233 @@ let elem2 = p('hello');
 
 out.innerHTML = elem;
 out.innerHTML += elem2;</pre>
-        </div>
-    </section>
-    <section class="idia bl-8">
-        <h3 class='title'>Работа с тенью</h3>
-        <code>box-shadow: inset(тень внутрь) &#60;отступ по х&#62; &#60;отступ по y&#62; &#60;радиус размытия&#62; &#60;размер тени&#62; &#60;цвет&#62;;</code>
-        <div class="example">
-            <ul class="bl-8_exampleWrap">
-                <li class="bl-8_1">1</li>
-                <li class="bl-8_2">2</li>
-                <li class="bl-8_3">3</li>
-                <li class="bl-8_4">4</li>
-                <li class="bl-8_5">5</li>
-                <li class="bl-8_6">6</li>
-            </ul>
-        </div>
-        <div class="description">
-            <h4 class="how-title">СSS</h4>
-            <div class="bl-8-descr-wrap">
-                <dl>
-                    <dt>1. Простая тень с мягким размытием</dt>
-                    <dd>
-                        <pre>
+            </div>
+        </section>
+        <section class="idia bl-8">
+            <h3 class='title'>Работа с тенью</h3>
+            <code>box-shadow: inset(тень внутрь) &#60;отступ по х&#62; &#60;отступ по y&#62; &#60;радиус размытия&#62; &#60;размер тени&#62; &#60;цвет&#62;;</code>
+            <div class="example">
+                <ul class="bl-8_exampleWrap">
+                    <li class="bl-8_1">1</li>
+                    <li class="bl-8_2">2</li>
+                    <li class="bl-8_3">3</li>
+                    <li class="bl-8_4">4</li>
+                    <li class="bl-8_5">5</li>
+                    <li class="bl-8_6">6</li>
+                </ul>
+            </div>
+            <div class="description">
+                <h4 class="how-title">СSS</h4>
+                <div class="bl-8-descr-wrap">
+                    <dl>
+                        <dt>1. Простая тень с мягким размытием</dt>
+                        <dd>
+                            <pre>
 box-shadow: 10px 5px 5px yellow;                    
                     </pre>
-                    </dd>
-                    <dt>2. Внутрянняя тень (inset) без размытия</dt>
-                    <dd>
-                        <pre>
+                        </dd>
+                        <dt>2. Внутрянняя тень (inset) без размытия</dt>
+                        <dd>
+                            <pre>
 box-shadow: inset 3em 1em gold;                  
                     </pre>
-                    </dd>
-                    <dt>3. Тень с размытием в 10px и масшатбом в 14px</dt>
-                    <dd>
-                        <pre>
+                        </dd>
+                        <dt>3. Тень с размытием в 10px и масшатбом в 14px</dt>
+                        <dd>
+                            <pre>
 box-shadow: 12px 12px 10px 14px rgba(0, 0, 255, .2);              
                     </pre>
-                    </dd>
-                </dl>
+                        </dd>
+                    </dl>
 
-                <dl>
-                    <dt>4. Две тени одного элемента</dt>
-                    <dd>
-                        <pre>
+                    <dl>
+                        <dt>4. Две тени одного элемента</dt>
+                        <dd>
+                            <pre>
 box-shadow: 3px 3px red, -1em 0 .4em olive;
                     </pre>
-                    </dd>
-                    <dt>5. Внешняя тень без размытия и масштаба</dt>
-                    <dd>
-                        <pre>
+                        </dd>
+                        <dt>5. Внешняя тень без размытия и масштаба</dt>
+                        <dd>
+                            <pre>
 box-shadow: 40px -15px teal;                  
                     </pre>
-                    </dd>
-                    <dt>6. Центрированная внутряняя тень с размытием и масштабом</dt>
-                    <dd>
-                        <pre>
+                        </dd>
+                        <dt>6. Центрированная внутряняя тень с размытием и масштабом</dt>
+                        <dd>
+                            <pre>
 box-shadow: inset 0px 0px 26px 26px rgb(0 0 255 / 20%);                    
                     </pre>
-                    </dd>
-                </dl>
+                        </dd>
+                    </dl>
+                </div>
+
+
+
             </div>
+        </section>
 
 
-
-        </div>
-    </section>
-
-
-    <section class="idia">
-        <h3 class='title'>Подключение font awesome</h3>
-        <div class="example">
-            <div class="bl-7_exampleWrap">
-                <a class="fas fa-hamsa" href="#"><i class="fas fa-hamsa"></i> ко ко ко</a>
+        <section class="idia">
+            <h3 class='title'>Подключение font awesome</h3>
+            <div class="example">
+                <div class="bl-7_exampleWrap">
+                    <a class="fas fa-hamsa" href="#"><i class="fas fa-hamsa"></i> ко ко ко</a>
+                </div>
             </div>
-        </div>
-        <div class="description">
-            <div class="bl-7_descrWrap">
-                <h4 class="how-title">Подключение по ссылке</h4>
-                <ol>
-                    <li>
-                        <p>
-                            Регаем свою почту на <a href="https://fontawesome.com/">https://fontawesome.com/</a>
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Получаем ссылку <br>
-                            &#60;script src="https://kit.fontawesome.com/682a1bab79.js"
-                            crossorigin="anonymous">&#60;/script>
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Вставляем класс или i куда нужно<br>
-                            &#60;a class="fas fa-hamsa" href="#">&#60;i class="fas fa-hamsa">&#60;/i> ко ко ко&#60;/a>
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Внимание!!! При таком подключении настройки иконки(например, шрифт)
-                            будут влиять на наши стили, что может мешать.
-                        </p>
-                    </li>
-                </ol>
-            </div>
-            <div class="bl-7_descrWrap">
-                <h4 class="how-title">Локальное использование</h4>
-                <ol>
-                    <li>
-                        <p>
-                            Скачиваем архив с официального сайта (будет лежать в на жестком диске)
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Заходим в папку css. All.css подключит все иконки, brand.css -
-                            брендовые (ех. Ютуб), и т.д. Внутренности можно посомтреть на сайте.
-                            Копируем нужный файл в свой проект и подключаем в link.
-                        </p>
-                    </li>
-                    <li>
-                        <p>Перетаскиваем в корень нашего проета папку со шрифтами webfonts.
-                            Если ее переименовать или взять из нее конкретный файл, в CSS
-                            нужно переписать url в самом конце файла.
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Вставляем класс или i куда нужно<br>
-                            &#60;a class="fas fa-hamsa" href="#">&#60;i class="fas fa-hamsa">&#60;/i> ко ко ко&#60;/a>
-                        </p>
-                    </li>
-                    <li>
-                        <p>Чтобы пофиксить влияние стилей иконок на свои стили, нужно
-                            в самом низу их css прописать, что стили относятся к псевдоэлементам.
-                            Например,
-                        <pre>
+            <div class="description">
+                <div class="bl-7_descrWrap">
+                    <h4 class="how-title">Подключение по ссылке</h4>
+                    <ol>
+                        <li>
+                            <p>
+                                Регаем свою почту на <a href="https://fontawesome.com/">https://fontawesome.com/</a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Получаем ссылку <br>
+                                &#60;script src="https://kit.fontawesome.com/682a1bab79.js"
+                                crossorigin="anonymous">&#60;/script>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Вставляем класс или i куда нужно<br>
+                                &#60;a class="fas fa-hamsa" href="#">&#60;i class="fas fa-hamsa">&#60;/i> ко ко
+                                ко&#60;/a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Внимание!!! При таком подключении настройки иконки(например, шрифт)
+                                будут влиять на наши стили, что может мешать.
+                            </p>
+                        </li>
+                    </ol>
+                </div>
+                <div class="bl-7_descrWrap">
+                    <h4 class="how-title">Локальное использование</h4>
+                    <ol>
+                        <li>
+                            <p>
+                                Скачиваем архив с официального сайта (будет лежать в на жестком диске)
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Заходим в папку css. All.css подключит все иконки, brand.css -
+                                брендовые (ех. Ютуб), и т.д. Внутренности можно посомтреть на сайте.
+                                Копируем нужный файл в свой проект и подключаем в link.
+                            </p>
+                        </li>
+                        <li>
+                            <p>Перетаскиваем в корень нашего проета папку со шрифтами webfonts.
+                                Если ее переименовать или взять из нее конкретный файл, в CSS
+                                нужно переписать url в самом конце файла.
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Вставляем класс или i куда нужно<br>
+                                &#60;a class="fas fa-hamsa" href="#">&#60;i class="fas fa-hamsa">&#60;/i> ко ко
+                                ко&#60;/a>
+                            </p>
+                        </li>
+                        <li>
+                            <p>Чтобы пофиксить влияние стилей иконок на свои стили, нужно
+                                в самом низу их css прописать, что стили относятся к псевдоэлементам.
+                                Например,
+                            <pre>
 .fa,
 .fas::before{
   font-family: 'Font Awesome 5 Free';
   font-weight: 900; }                                
                             </pre>
-                        </p>
-                    </li>
-                    <li>
-                        <p>
-                            Кстати, в папке svg лежат все иконки, можно таскать оттуда :)
-                        </p>
-                    </li>
-                </ol>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                Кстати, в папке svg лежат все иконки, можно таскать оттуда :)
+                            </p>
+                        </li>
+                    </ol>
+                </div>
+                <div class="bl-7_descrWrap">
+                    <h4 class="how-title">Как получить платную иконку бесплатно</h4>
+                    <ol>
+                        <li>
+                            <p>Заходим на сайт, выбираем нужную иконку</p>
+                        </li>
+                        <li>
+                            <p>Тыкаем "Посмотреть код" в ДевТулс. ПКМ, copy.</p>
+                        </li>
+                        <li>
+                            <p>Создаем локально svg-файл и сохранияем скопированное в него.</p>
+                        </li>
+                    </ol>
+                </div>
+
             </div>
-            <div class="bl-7_descrWrap">
-                <h4 class="how-title">Как получить платную иконку бесплатно</h4>
-                <ol>
+        </section>
+
+
+        <section class="idia">
+            <h3 class='title'>Кодировка символов</h3>
+            <div class="example">
+                <ul class="bl-6_wpapper">
                     <li>
-                        <p>Заходим на сайт, выбираем нужную иконку</p>
+                        <p>&#60;</p>
+                        <p>&#38;#60;</p>
                     </li>
                     <li>
-                        <p>Тыкаем "Посмотреть код" в ДевТулс. ПКМ, copy.</p>
+                        <p>&#62;</p>
+                        <p>&#38;#62;</p>
                     </li>
                     <li>
-                        <p>Создаем локально svg-файл и сохранияем скопированное в него.</p>
+                        <p>Неразрываный пробел</p>
+                        <p>&#38;#160;</p>
                     </li>
-                </ol>
+                    <li>
+                        <p>&#10004;</p>
+                        <p>&#38;#10004;</p>
+                    </li>
+                    <li>
+                        <p>&#10008;</p>
+                        <p>&#38;#10008;</p>
+                    </li>
+                    <li>
+                        <p>&euro;</p>
+                        <p>&#38;euro;</p>
+                    </li>
+                    <li>
+                        <p>&#169;</p>
+                        <p>&#38;#169;</p>
+                    </li>
+                    <li>
+                        <p>&#167;</p>
+                        <p>&#38;#167;</p>
+                    </li>
+                    <li>
+                        <p>&#174;</p>
+                        <p>&#38;#174;</p>
+                    </li>
+                    <li>
+                        <p>&#8381;</p>
+                        <p>&#38;#8381;</p>
+                    </li>
+                </ul>
             </div>
+        </section>
 
-        </div>
-    </section>
-
-
-    <section class="idia">
-        <h3 class='title'>Кодировка символов</h3>
-        <div class="example">
-            <ul class="bl-6_wpapper">
-                <li>
-                    <p>&#60;</p>
-                    <p>&#38;#60;</p>
-                </li>
-                <li>
-                    <p>&#62;</p>
-                    <p>&#38;#62;</p>
-                </li>
-                <li>
-                    <p>Неразрываный пробел</p>
-                    <p>&#38;#160;</p>
-                </li>
-                <li>
-                    <p>&#10004;</p>
-                    <p>&#38;#10004;</p>
-                </li>
-                <li>
-                    <p>&#10008;</p>
-                    <p>&#38;#10008;</p>
-                </li>
-                <li>
-                    <p>&euro;</p>
-                    <p>&#38;euro;</p>
-                </li>
-                <li>
-                    <p>&#169;</p>
-                    <p>&#38;#169;</p>
-                </li>
-                <li>
-                    <p>&#167;</p>
-                    <p>&#38;#167;</p>
-                </li>
-                <li>
-                    <p>&#174;</p>
-                    <p>&#38;#174;</p>
-                </li>
-                <li>
-                    <p>&#8381;</p>
-                    <p>&#38;#8381;</p>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <section class="idia">
-        <h3 class='title'>Стилизация скролла</h3>
-        <div class="example">
-            <ul class="bl-5_wrapper">
-                <li class="bl-5_item">
-                    <div class="bl-5_item-inner">
-                        <h4 class="how-title">Пример 1</h4>
-                        <pre>
+        <section class="idia">
+            <h3 class='title'>Стилизация скролла</h3>
+            <div class="example">
+                <ul class="bl-5_wrapper">
+                    <li class="bl-5_item">
+                        <div class="bl-5_item-inner">
+                            <h4 class="how-title">Пример 1</h4>
+                            <pre>
 .bl-5_item-inner::-webkit-scrollbar {
     background-color: #f9f9fd;
     width: 10px;
@@ -1136,12 +1172,12 @@ box-shadow: inset 0px 0px 26px 26px rgb(0 0 255 / 20%);
 .bl-5_item-inner::-webkit-scrollbar-track {
     box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
 }</pre>
-                    </div>
-                </li>
-                <li class="bl-5-item">
-                    <div class="bl-5_item-inner bl-5_item-inner-2">
-                        <h4 class="how-title">Пример 2</h4>
-                        <pre>
+                        </div>
+                    </li>
+                    <li class="bl-5-item">
+                        <div class="bl-5_item-inner bl-5_item-inner-2">
+                            <h4 class="how-title">Пример 2</h4>
+                            <pre>
 .bl-5_item-inner-2::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -1161,12 +1197,12 @@ box-shadow: inset 0px 0px 26px 26px rgb(0 0 255 / 20%);
                       transparent);
 }
                         </pre>
-                    </div>
-                </li>
-                <li class="bl-5-item">
-                    <div class="bl-5_item-inner bl-5_item-inner-3">
-                        <h4 class="how-title">Пример 3</h4>
-                        <pre>
+                        </div>
+                    </li>
+                    <li class="bl-5-item">
+                        <div class="bl-5_item-inner bl-5_item-inner-3">
+                            <h4 class="how-title">Пример 3</h4>
+                            <pre>
 .bl-5_item-inner-3::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -1183,12 +1219,12 @@ box-shadow: inset 0px 0px 26px 26px rgb(0 0 255 / 20%);
     background-image: linear-gradient(180deg, rgba(255, 255, 255, .75), transparent);
 }
                         </pre>
-                    </div>
-                </li>
-                <li class="bl-5-item">
-                    <div class="bl-5_item-inner bl-5_item-inner-4">
-                        <h4 class="how-title">Пример 4</h4>
-                        <pre>
+                        </div>
+                    </li>
+                    <li class="bl-5-item">
+                        <div class="bl-5_item-inner bl-5_item-inner-4">
+                            <h4 class="how-title">Пример 4</h4>
+                            <pre>
 .bl-5_item-inner-4::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -1203,45 +1239,45 @@ box-shadow: inset 0px 0px 26px 26px rgb(0 0 255 / 20%);
     background: linear-gradient(180deg, #00c6fb, #005bea);
 }                            
                         </pre>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="description">
-            <p>
-                РАБОТАЕТ ТОЛЬКО В ВЕБКИТЕ <br>
-                В мозиле только такой убогий код
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="description">
+                <p>
+                    РАБОТАЕТ ТОЛЬКО В ВЕБКИТЕ <br>
+                    В мозиле только такой убогий код
 
-            <pre>
+                <pre>
 scrollbar-color: #00c6fb #005bea;     /* «цвет ползунка» «цвет полосы скроллбара» */
 scrollbar-width: auto | thin | none;  /* толщина */                    
                 </pre>
-            </p>
-        </div>
-    </section>
-
-    <section class="idia">
-        <h3 class='title'>Перетскивание элементов</h3>
-        <div class="example bl-4__example">
-            <div class="zone-1">
-                <img class="lamp" id="lamp" src="images/1.png" alt="" draggable="true">
-                <img class="web" id="web" src="images/2.png" alt="" draggable="true">
+                </p>
             </div>
-            <div class="zone-2"></div>
-            <div class="zone-3"></div>
-            <div class="zone-4"></div>
-        </div>
-        <div class="description">
-            <div class="bl-4__descr-item">
-                <h4 class="how-title">HTML</h4>
-                <pre class="bl-4__pre">
+        </section>
+
+        <section class="idia">
+            <h3 class='title'>Перетскивание элементов</h3>
+            <div class="example bl-4__example">
+                <div class="zone-1">
+                    <img class="lamp" id="lamp" src="images/1.png" alt="" draggable="true">
+                    <img class="web" id="web" src="images/2.png" alt="" draggable="true">
+                </div>
+                <div class="zone-2"></div>
+                <div class="zone-3"></div>
+                <div class="zone-4"></div>
+            </div>
+            <div class="description">
+                <div class="bl-4__descr-item">
+                    <h4 class="how-title">HTML</h4>
+                    <pre class="bl-4__pre">
 &#60;img class="lamp" id="lamp" src="images/1.png" alt="" draggable="true"&#62;
 &#60;img class="web" id="web" src="images/2.png" alt="" draggable="true"&#62;                  
                 </pre>
-            </div>
-            <div class="bl-4__descr-item">
-                <h4 class="how-title">JS</h4>
-                <pre class="bl-4__pre">
+                </div>
+                <div class="bl-4__descr-item">
+                    <h4 class="how-title">JS</h4>
+                    <pre class="bl-4__pre">
     НЕ РАБОТАЕТ ДЛЯ СМАРТФОНОВ                
 const zone1 = document.querySelector('.zone-1');
 const zone2 = document.querySelector('.zone-2'); //повторяем для большего числа блоков циклом
@@ -1269,21 +1305,21 @@ function drop(event) {
         event.target.parentNode.append(document.getElementById(itemId));
     }
 }</pre>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="idia">
-        <h3 class='title'>Иммитация набора текста на JS</h3>
-        <div class="example bl-3__example">
-            <div class="bl-3__out-text">
+                </div>
 
             </div>
-        </div>
-        <div class="description">
-            <h4 class="how-title">JS</h4>
-            <pre class="bl-3__pre">
+        </section>
+
+        <section class="idia">
+            <h3 class='title'>Иммитация набора текста на JS</h3>
+            <div class="example bl-3__example">
+                <div class="bl-3__out-text">
+
+                </div>
+            </div>
+            <div class="description">
+                <h4 class="how-title">JS</h4>
+                <pre class="bl-3__pre">
 const outText = document.querySelector('.out-text');                
 const text = [
     'Привет мир\n',
@@ -1323,20 +1359,20 @@ function getRandomInt(max){
 
 typeText()                
             </pre>
-        </div>
-    </section>
-
-    <section class="idia">
-        <h3 class='title'>Имитация набора текста на CSS</h3>
-        <div class="example">
-            <div class="bl-2__container">
-                <p class="bl-2__text">Добавим немного магии</p>
             </div>
-        </div>
-        <div class="description bl-2__descr">
-            <h4 class="how-title">CSS</h4>
-            <div class="bl-2__descr-wrap">
-                <pre>
+        </section>
+
+        <section class="idia">
+            <h3 class='title'>Имитация набора текста на CSS</h3>
+            <div class="example">
+                <div class="bl-2__container">
+                    <p class="bl-2__text">Добавим немного магии</p>
+                </div>
+            </div>
+            <div class="description bl-2__descr">
+                <h4 class="how-title">CSS</h4>
+                <div class="bl-2__descr-wrap">
+                    <pre>
 .bl-2__text{
 width: 21ch;
 font-family: monospace;
@@ -1348,7 +1384,7 @@ border-right: 3px solid #2fa10c;
 animation: flashing-border 0.85s step-end infinite,
            printed-text 5.95s steps(21)
 }</pre>
-                <pre>
+                    <pre>
 @keyframes flashing-border {
     0% {border-color: #2fa10c;}
     50% {border-color: transparent;}
@@ -1362,30 +1398,30 @@ animation: flashing-border 0.85s step-end infinite,
 Расчет времени: 
 0.85 * кол-во символов / 3 тика анимации
 </pre>
-            </div>
-        </div>
-    </section>
-
-    <section class="idia">
-        <h3 class='title'>Переворачивающиеся карточки</h3>
-        <div class="example">
-            <div class="bl-1__container">
-                <div class="bl-1__card">
-                    <div class="bl-1__front"><span>Передняя сторона</span></div>
-                    <div class="bl-1__back"><span>Задняя сторона</span></div>
-                </div>
-                <div class="bl-1__card">
-                    <div class="bl-1__front"><span>Передняя сторона</span></div>
-                    <div class="bl-1__back"><span>Задняя сторона</span></div>
                 </div>
             </div>
+        </section>
 
-        </div>
-        <div class="description">
-            <div class="bl-1__descr">
-                <div class="bl-1__desck-inner">
-                    <h4 class="how-title">CSS</h4>
-                    <pre>
+        <section class="idia">
+            <h3 class='title'>Переворачивающиеся карточки</h3>
+            <div class="example">
+                <div class="bl-1__container">
+                    <div class="bl-1__card">
+                        <div class="bl-1__front"><span>Передняя сторона</span></div>
+                        <div class="bl-1__back"><span>Задняя сторона</span></div>
+                    </div>
+                    <div class="bl-1__card">
+                        <div class="bl-1__front"><span>Передняя сторона</span></div>
+                        <div class="bl-1__back"><span>Задняя сторона</span></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="description">
+                <div class="bl-1__descr">
+                    <div class="bl-1__desck-inner">
+                        <h4 class="how-title">CSS</h4>
+                        <pre>
 .card{
     width: 300px;
     height: 300px;
@@ -1415,11 +1451,11 @@ animation: flashing-border 0.85s step-end infinite,
 .card:hover .front {transform: rotateY(180deg);}
 .card:hover .back {transform: rotateY(360deg);}  
                 </pre>
-                </div>
+                    </div>
 
-                <div class="bl-1__desck-inner">
-                    <h4 class="how-title">JS</h4>
-                    <pre>
+                    <div class="bl-1__desck-inner">
+                        <h4 class="how-title">JS</h4>
+                        <pre>
 Если клик и ховер на одном устройстве - лагает,
 поэтому нужна проверка и разведение по устройствам.
 Интересно, как поведет себя на маке.   
@@ -1443,24 +1479,24 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     })
 }
                 </pre>
+                    </div>
+
                 </div>
-
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="idia">
-        <h3 class='title'>Анимация формы</h3>
-        <div class="example">
-            <div class="shakeBlock fallingBlock">
-                <button class="containerAnim-btn shakeBtn">Покачаться</button>
-                <button class="containerAnim-btn fallingBtn">Выпасть</button>
+        <section class="idia">
+            <h3 class='title'>Анимация формы</h3>
+            <div class="example">
+                <div class="shakeBlock fallingBlock">
+                    <button class="containerAnim-btn shakeBtn">Покачаться</button>
+                    <button class="containerAnim-btn fallingBtn">Выпасть</button>
+                </div>
             </div>
-        </div>
-        <div class="description animForm">
-            <div>
-                <h4 class="how-title">CSS</h4>
-                <pre class="animForm-pre">
+            <div class="description animForm">
+                <div>
+                    <h4 class="how-title">CSS</h4>
+                    <pre class="animForm-pre">
 @keyframes shake {
     0%, 100% {transform: translateX(0);}
     10%, 30%, 50%, 70%, 90% {transform: translateX(-10px);}
@@ -1470,8 +1506,8 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
     animation-name: shake;
     animation-duration: .7s;
 }</pre>
-                <h4 class="how-title">JS</h4>
-                <pre class="animForm-pre">
+                    <h4 class="how-title">JS</h4>
+                    <pre class="animForm-pre">
 const shakeBlock = document.querySelector('.shakeBlock');
 const shakeBtn = document.querySelector('.shakeBtn')
 shakeBtn.addEventListener('click', ()=>{
@@ -1479,10 +1515,10 @@ shakeBtn.addEventListener('click', ()=>{
     shakeBlock.scrollWidth = shakeBlock.scrollWidth;
     shakeBlock.classList.add('animForm-shake');
 })</pre>
-            </div>
-            <div>
-                <h4 class="how-title">CSS</h4>
-                <pre class="animForm-pre">
+                </div>
+                <div>
+                    <h4 class="how-title">CSS</h4>
+                    <pre class="animForm-pre">
 @keyframes falling {
     0% {transform: translateY(-200px);}
     70% {transform: translateY(30px);}
@@ -1493,8 +1529,8 @@ shakeBtn.addEventListener('click', ()=>{
     animation-name: falling;
     animation-duration: .6s;
 }</pre>
-                <h4 class="how-title">JS</h4>
-                <pre class="animForm-pre">
+                    <h4 class="how-title">JS</h4>
+                    <pre class="animForm-pre">
 const fallingBtn = document.querySelector('.fallingBtn');
     const fallingBlock = document.querySelector('.fallingBlock');
     fallingBtn.addEventListener('click', ()=>{
@@ -1502,25 +1538,25 @@ const fallingBtn = document.querySelector('.fallingBtn');
         fallingBlock.scrollWidth = fallingBlock.scrollWidth;
         fallingBlock.classList.add('animForm-falling')
     });</pre>
+                </div>
             </div>
-        </div>
-        <p class="comments">
-            В цсс нельзя вешать транзишн из разных источников.
-            Поэтому в оригинальном жс я удаляю с блока все классы,
-            кроме .shakeBlock и .fallingBlock, через которые его нахожу.
-        </p>
-    </section>
+            <p class="comments">
+                В цсс нельзя вешать транзишн из разных источников.
+                Поэтому в оригинальном жс я удаляю с блока все классы,
+                кроме .shakeBlock и .fallingBlock, через которые его нахожу.
+            </p>
+        </section>
 
-    <section class="idia inputs">
-        <h3 class='title'>Стилизация инпута</h3>
-        <div class="example">
-            <input class="input_style1" placeholder="Красивый инпут" type="text">
-            <input type="text" class="input_style2" placeholder="Инпут с подчеркиванием">
-        </div>
-        <div class="description">
-            <h4 class="how-title">CSS</h4>
-            <div class="conteinerDescription">
-                <pre>
+        <section class="idia inputs">
+            <h3 class='title'>Стилизация инпута</h3>
+            <div class="example">
+                <input class="input_style1" placeholder="Красивый инпут" type="text">
+                <input type="text" class="input_style2" placeholder="Инпут с подчеркиванием">
+            </div>
+            <div class="description">
+                <h4 class="how-title">CSS</h4>
+                <div class="conteinerDescription">
+                    <pre>
 .input_style1{
     border: none;
     border-radius: 5px;
@@ -1529,7 +1565,7 @@ const fallingBtn = document.querySelector('.fallingBtn');
     outline: none;
 }
 </pre>
-                <pre>
+                    <pre>
 .input_style2 {
     border: none;
     padding: 10px 20px;
@@ -1538,83 +1574,83 @@ const fallingBtn = document.querySelector('.fallingBtn');
     border-bottom: 2px solid #2fa10c;
 }
 </pre>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section>
-        <article class="idia">
-            <h3 class='title'>Ползающее подчеркивание</h3>
+        <section>
+            <article class="idia">
+                <h3 class='title'>Ползающее подчеркивание</h3>
+                <div class="example">
+                    <ul class="flexContainer">
+                        <li class="flexContainer-item">
+                            <a class="flexContainer__link" href="#">Пункт меню</a>
+                        </li>
+                        <li class="flexContainer-item">
+                            <a class="flexContainer__link" href="#">Пункт меню</a>
+                        </li>
+                        <li class="flexContainer-item">
+                            <a class="flexContainer__link" href="#">Пункт меню</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="description">
+                    <h4 class="how-title">CSS</h4>
+                    <span>
+                        .flexContainer__link {
+                        position: relative;
+                        }
+                    </span>
+                    <span>
+                        .flexContainer__link::after{
+                        content: "";
+                        width: 0;
+                        height: 3px;
+                        left: auto;
+                        position: absolute;
+                        background-color: #2fa10c;
+                        bottom: -3px;
+                        transition: all 0.3s;
+                        right: 0;
+                        }
+                    </span>
+                    <span>
+                        .flexContainer__link:hover{
+                        color: rgb(139, 8, 8);
+                        }
+                    </span>
+                    <span>
+                        .flexContainer__link:hover::after {
+                        width: 100%;
+                        right: auto;
+                        left: 0 ;
+                        }
+                    </span>
+                </div>
+            </article>
+        </section>
+        <section>
+            <h2 class="title">Цветное выделение текста</h2>
             <div class="example">
-                <ul class="flexContainer">
-                    <li class="flexContainer-item">
-                        <a class="flexContainer__link" href="#">Пункт меню</a>
-                    </li>
-                    <li class="flexContainer-item">
-                        <a class="flexContainer__link" href="#">Пункт меню</a>
-                    </li>
-                    <li class="flexContainer-item">
-                        <a class="flexContainer__link" href="#">Пункт меню</a>
-                    </li>
-                </ul>
+                <p class="text-selection">
+                    Не-текст интуитивно понятен. Комбинаторное приращение однократно.
+                    Быличка наблюдаема. Наш современник стал особенно чутко относиться
+                    к слову, однако гекзаметр традиционно представляет собой метафоричный
+                    дискурс, и это придает ему свое звучание, свой характер. Возможно,
+                    что сходство Гугона и Микулы объясняется родством бродячих мотивов,
+                    однако ударение фонетически притягивает ямб.
+                </p>
             </div>
             <div class="description">
                 <h4 class="how-title">CSS</h4>
-                <span>
-                    .flexContainer__link {
-                    position: relative;
-                    }
-                </span>
-                <span>
-                    .flexContainer__link::after{
-                    content: "";
-                    width: 0;
-                    height: 3px;
-                    left: auto;
-                    position: absolute;
-                    background-color: #2fa10c;
-                    bottom: -3px;
-                    transition: all 0.3s;
-                    right: 0;
-                    }
-                </span>
-                <span>
-                    .flexContainer__link:hover{
-                    color: rgb(139, 8, 8);
-                    }
-                </span>
-                <span>
-                    .flexContainer__link:hover::after {
-                    width: 100%;
-                    right: auto;
-                    left: 0 ;
-                    }
-                </span>
+                .класс элемента с текстом::selection {
+                background-color: red;
+                color: #fff;
+                }
             </div>
-        </article>
-    </section>
-    <section>
-        <h2 class="title">Цветное выделение текста</h2>
-        <div class="example">
-            <p class="text-selection">
-                Не-текст интуитивно понятен. Комбинаторное приращение однократно.
-                Быличка наблюдаема. Наш современник стал особенно чутко относиться
-                к слову, однако гекзаметр традиционно представляет собой метафоричный
-                дискурс, и это придает ему свое звучание, свой характер. Возможно,
-                что сходство Гугона и Микулы объясняется родством бродячих мотивов,
-                однако ударение фонетически притягивает ямб.
-            </p>
-        </div>
-        <div class="description">
-            <h4 class="how-title">CSS</h4>
-            .класс элемента с текстом::selection {
-            background-color: red;
-            color: #fff;
-            }
-        </div>
 
-    </section>
-        </div>
+        </section>
+    </div>
     </div>
 
 

@@ -953,3 +953,11 @@ section {
 .b-20 .example img {
   border: 1px solid #e6e6e6;
 }
+
+/* Масштабирование фото (input[type="range"]) */
+.b-21 .example {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+}
