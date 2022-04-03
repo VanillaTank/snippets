@@ -410,7 +410,7 @@ out.innerHTML += elem2;
     clickCircle(xMouse, yMouse) {
       const distance = Math.sqrt(
         (xMouse - this.xPoint) * (xMouse - this.xPoint) +
-          (yMouse - this.yPoint) * (yMouse - this.yPoint)
+        (yMouse - this.yPoint) * (yMouse - this.yPoint)
       );
 
       if (distance <= this.radius) {
@@ -437,7 +437,40 @@ out.innerHTML += elem2;
 // -------------------------------------------------------------------------------------
 //Масштабирование фото (input[type="range"])
 const photo_b21 = document.querySelector('#b-21_photo');
-function resize_photo () {
- const delta = document.querySelector('#b-21_scale').value;
- photo_b21.width = 20 * delta;
-}
+function resize_photo() {
+  const delta = document.querySelector('#b-21_scale').value;
+  photo_b21.width = 20 * delta;
+};
+
+// -------------------------------------------------------------------------------------
+//Анимация наведения и клика
+(function () {
+  const btn = document.querySelector('#b-22-btn');
+
+  btn.addEventListener('click', onBtnClick);
+
+  function onBtnClick(evt) {
+    const rect = this.getBoundingClientRect(); 
+
+    if ( !(rect.x >= rect.left && rect.x <= rect.left+rect.width) 
+      && !(rect.y >= rect.top && rect.y <= rect.top+rect.height)) { return }
+     
+    const div = document.createElement('div');
+    div.classList.add('pulse');
+    const maxValue = Math.max(this.clientWidth, this.clientHeight)
+
+    const styledDiv = div.style;
+    const px = 'px';
+
+    styledDiv.width = styledDiv.height = maxValue + px;
+    styledDiv.left = evt.clientX - rect.left - (maxValue / 2) + px;
+    styledDiv.top = evt.clientY - rect.top - (maxValue / 2) + px;
+
+    this.appendChild(div);
+
+    div.addEventListener('animationend', removeDiv);
+  }
+
+  function removeDiv() { this.remove() }
+
+})();
