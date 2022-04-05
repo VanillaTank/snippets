@@ -41,7 +41,57 @@
             </div>
         </section> -->
 
-    
+    <section class="idia b-23">
+        <h3 class='title'>Анимация дождя</h3>
+        <div class="example back-image">
+            <div class="water"></div>
+        </div>
+        <div class="description">
+            <div class="border">
+                <h4 class="how-title btn-toggle">HTML</h4>
+                <div class="drop-body">
+                    <pre>
+ &#60;div class="back-image">
+    &#60;div class="water">&#60;/div>
+ &#60;/div>
+                    </pre>
+                </div>
+            </div>
+
+
+
+            <div class="border">
+                <h4 class="how-title btn-toggle">CSS</h4>
+                <div class="drop-body">
+                    <pre>
+  .back-image {
+    height: 700px;
+    border: 1px solid #eee;
+    margin: 0 20px;
+    background-image: url('../images/rainy-castle.jpg');
+    background-size: cover;
+  }
+  
+  .water {
+   height: 100%;
+   width: 100%;
+   background-image: url('../images/water.png');
+   animation: water 250ms linear infinite;
+  }
+  
+  @keyframes water {
+   0% {
+     background-position: -5% -5%;
+   }
+   100% {
+     background-position: 10% 70%;
+   }
+  
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="idia b-22">
         <h3 class='title'>Анимация наведения и клика</h3>

@@ -1025,3 +1025,28 @@ section {
     opacity: 0;
   }
 }
+
+/* Анимация дождя */
+.back-image {
+  height: 700px;
+  border: 1px solid #eee;
+  margin: 0 20px;
+  background-image: url('../images/rainy-castle.jpg');
+  background-size: cover;
+}
+
+.b-23 .water {
+  height: 100%;
+  width: 100%;
+  background-image: url('../images/water.png');
+  animation: water 250ms linear infinite;
+}
+
+@keyframes water {
+  0% {
+    background-position: -5% -5%;
+  }
+  100% {
+    background-position: 10% 70%;
+  }
+}
