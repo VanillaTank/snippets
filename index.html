@@ -41,6 +41,78 @@
             </div>
         </section> -->
 
+    <section class="idia b-24">
+        <h3 class='title'>Анимация дождя 2</h3>
+        <div class="example"></div>
+        <div class="description">
+            <div class="border">
+                <h4 class="how-title btn-toggle">CSS</h4>
+                <div class="drop-body">
+                    <pre>
+  .b-24 .example {
+    height: 500px;
+    background-color: #000;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .b-24 index {
+    position: absolute;
+    top: -150px;
+    height: 150px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    animation: animate 5s linear infinite;
+  }
+  @keyframes animate {
+    0% {
+      transform: translateY(-150px);
+    }
+    100% {
+      transform: translateY(calc(500px + 150px));
+    }
+  }
+  .b-24 index:nth-child(4n+1) {
+    background: linear-gradient(transparent, #00f);
+  }
+
+  .b-24 index:nth-child(4n+2) {
+    background: linear-gradient(transparent, #0f0);
+  }
+
+                    </pre>
+                </div>
+            </div>
+            <div class="border">
+                <h4 class="how-title btn-toggle">JS</h4>
+                <div class="drop-body">
+                    <pre>
+  let quantity = 240;  //количество капель
+  let body = document.querySelector('.b-24 .example');
+  let index = 0;
+
+  while( index < quantity ) {
+    let drop = document.createElement('index');
+    let size = Math.random() * 5;
+    let positionX = Math.floor(Math.random() * body.clientWidth);
+    let delay = Math.random() * 20;
+    let duration = Math.random() * 5;
+
+    drop.style.width = 0.3 + size + 'px';
+    drop.style.left = positionX + 'px';
+    drop.style.animationDelay = delay + 's';
+    drop.style.animationDuration = 7 + duration + 's';
+
+    body.appendChild(drop)
+    index++;
+  }
+
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="idia b-23">
         <h3 class='title'>Анимация дождя</h3>
         <div class="example back-image">
