@@ -1050,3 +1050,43 @@ section {
     background-position: 10% 70%;
   }
 }
+
+/*  Анимация дождя 2 */
+.b-24 .example {
+  height: 500px;
+  background-color: #000;
+  overflow: hidden;
+  position: relative;
+}
+
+.b-24 index {
+  position: absolute;
+  top: -150px;
+  height: 150px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  animation: animate 5s linear infinite;
+}
+@keyframes animate {
+  0% {
+    transform: translateY(-150px);
+  }
+  100% {
+    transform: translateY(calc(500px + 150px));
+  }
+}
+.b-24 index:nth-child(4n+1) {
+  background: linear-gradient(transparent, #00f);
+}
+
+.b-24 index:nth-child(4n+2) {
+  background: linear-gradient(transparent, #0f0);
+}
+
+.b-24 index:nth-child(4n+3) {
+  background: linear-gradient(transparent, #ff0);
+}
+
+.b-24 index:nth-child(4n+4) {
+  background: linear-gradient(transparent, #f00);
+}
