@@ -450,11 +450,11 @@ function resize_photo() {
   btn.addEventListener('click', onBtnClick);
 
   function onBtnClick(evt) {
-    const rect = this.getBoundingClientRect(); 
+    const rect = this.getBoundingClientRect();
 
-    if ( !(rect.x >= rect.left && rect.x <= rect.left+rect.width) 
-      && !(rect.y >= rect.top && rect.y <= rect.top+rect.height)) { return }
-     
+    if (!(rect.x >= rect.left && rect.x <= rect.left + rect.width)
+      && !(rect.y >= rect.top && rect.y <= rect.top + rect.height)) { return }
+
     const div = document.createElement('div');
     div.classList.add('pulse');
     const maxValue = Math.max(this.clientWidth, this.clientHeight)
