@@ -41,6 +41,129 @@
             </div>
         </section> -->
 
+    <section class="idia b-25">
+        <h3 class='title'>Корреляция (фи-коэффицент)</h3>
+        <div class="example">
+            <div class="wrap">
+                <div class="info-block">
+                    <div class="descr">
+                        <p>Корреляция - это степень зависимости между статистическими переменными. Корреляция между
+                            переменными обычно выражается в виде значения в диапазоне от -1 до 1.
+                            Нулевая корреляция означает, что переменные не связаны. Корреляция, равная единице,
+                            указывает на то, что две переменные точно совпадают - если
+                            вы знаете одну из них, то знаете и другую. Минус единица также означает,
+                            что переменные однозначно связаны, но противоположны - когда одна истинна, то вторая ложна.
+                        </p>
+                        <p>В верхний инпут нужно ввести название события, корреляцию с которым мы рассматриваем.
+                           В нижний - все наблюдения. Например, мы ищем корреляцию "работы" и поедания арахисовой
+                           пасты. Тогда вверх мы пишем "work", а вниз что-то вроде</br>
+                           { events: ["brushed teeth","peanuts", "exercise", "work"] },</br>
+{ events: ["spaghetti", "brushed teeth", "television", "work"] },</br>
+{ events: ["pizza", "cycling", "weekend"] }
+                        </p>
+                    </br>
+                        <p>
+                            И нажать на РАССЧИТАТЬ
+                        </p>
+                    </div>
+                    <button class="btn-phi">рассчитать</button>
+                </div>
+                <div class="input-block">
+                    <input class="mainEvent" id="mainEvent" type="text" placeholder="Искомое событие">
+                    <textarea class="textarea" id="b-25-textarea" placeholder="Дневник наблюдений"></textarea>
+                </div>
+            </div>
+            <div class="output"></div>
+        </div>
+
+        <div class="description">
+            <div class="border">
+                <h4 class="how-title btn-toggle">JS</h4>
+                <div class="drop-body">
+                    <pre>
+  const btn = document.querySelector('.btn-phi');
+  const output = document.querySelector('.output');
+  let mainEvent = '';
+
+  btn.addEventListener('click', () => {
+
+    let data = '[' + document.querySelector('#b-25-textarea')
+      .value
+      .replaceAll('events', '"events"') + ']';
+
+    mainEvent = document.querySelector('#mainEvent').value;
+
+    if (!mainEvent) { alert('Укажите искомое событие!'); return; }
+
+    //в примере оно (data) изначально забито в коде
+    JOURNAL = JSON.parse(data); 
+
+    if (!JOURNAL.length || JOURNAL.length &#60;= 0) { alert('Заполните данные!'); return; }
+
+    output.innerHTML = '&#60;ul>'
+
+    // Считает все корреляции и отсеивает близкие к нулю
+    let arr = [];
+    for (let event of journalEvents(JOURNAL)) {
+      let correlation = phi(tableFor(event, JOURNAL));
+      arr.push({ event, correlation })
+    }
+
+    console.log(arr);
+
+    arr.sort((a, b) => {
+      if (a.correlation > b.correlation) { return -1 }
+      if (a.correlation &#60; b.correlation) { return 1 }
+      return 0;
+    })
+
+    for (let entry of arr) {
+      output.innerHTML += `&#60;li>${entry.event}: ${entry.correlation.toFixed(2)}</li>`
+    }
+
+    output.innerHTML += '&#60;/ul>'
+
+  });
+
+
+
+  function phi([n00, n01, n10, n11]) {
+    return (n11 * n00 - n10 * n01) /
+      Math.sqrt((n10 + n11) * (n00 + n01) * (n01 + n11) * (n00 + n10));
+
+  }
+
+  //Считает количество одноименных событий в журнале
+  function tableFor(event, journal) {
+    let table = [0, 0, 0, 0];
+    for (let i = 0; i &#60; journal.length; i++) {
+      let entry = journal[i], index = 0;
+      if (entry.events.includes(event)) index += 1;
+      if (entry.events.includes(mainEvent)) index += 2;
+      table[index] += 1;
+    }
+    return table;
+  }
+
+
+  //Ищем все типы событий, чтобы потом найти все корреляции. 
+  function journalEvents(journal) {
+    let events = [];
+    for (let entry of journal) {
+      for (let event of entry.events) {
+        if (!events.includes(event) && event !== mainEvent) {
+          events.push(event);
+        }
+      }
+    }
+    return events;
+  }                        
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="idia b-24">
         <h3 class='title'>Анимация дождя 2</h3>
         <div class="example"></div>

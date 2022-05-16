@@ -482,7 +482,7 @@ function resize_photo() {
   let body = document.querySelector('.b-24 .example');
   let index = 0;
 
-  while( index < quantity ) {
+  while (index < quantity) {
     let drop = document.createElement('index');
     let size = Math.random() * 5;
     let positionX = Math.floor(Math.random() * body.clientWidth);
@@ -497,4 +497,119 @@ function resize_photo() {
     body.appendChild(drop)
     index++;
   }
+})();
+
+// -------------------------------------------------------------------------------------
+//Корреляция (фи-коэффицент)
+(function () {
+
+  document.querySelector('#b-25-textarea').value = `{ events: ["lasagna", "peanuts", "work"] },
+{ events: ["pizza", "peanuts", "work"] },
+{ events: ["potatoes", "exercise", "peanuts", "work"] },
+{ events: ["brushed teeth","peanuts", "exercise", "work"] },
+{ events: ["spaghetti", "brushed teeth","peanuts", "television", "work"] },
+{ events: ["pizza", "cycling", "weekend"] },
+{ events: ["carrot", "brushed teeth", "weekend"]  },
+{ events: ["carrot", "beer", "peanuts", "brushed teeth", "work"] },
+{ events: ["pizza", "peanuts", "candy", "work"] },
+{ events: ["carrot", "peanuts", "brushed teeth", "reading", "work"] },
+{ events: ["lasagna", "peanuts", "work"] },
+{ events: ["pizza", "peanuts", "work"] },
+{ events: ["potatoes", "exercise", "peanuts", "work"] },
+{ events: ["brushed teeth","peanuts", "exercise", "work"] },
+{ events: ["spaghetti", "brushed teeth","peanuts", "television", "work"] },
+{ events: ["pizza", "cycling", "weekend"] },
+{ events: ["carrot", "brushed teeth", "weekend"]  },
+{ events: ["carrot", "beer", "peanuts", "brushed teeth", "work"] },
+{ events: ["pizza", "peanuts", "candy", "work"] },
+{ events: ["carrot", "peanuts", "brushed teeth", "reading", "work"] }`
+
+  let JOURNAL = []
+  const btn = document.querySelector('.btn-phi');
+  const output = document.querySelector('.output');
+  let mainEvent = '';
+
+  btn.addEventListener('click', () => {
+
+    let data = '[' + document.querySelector('#b-25-textarea')
+      .value
+      .replaceAll('events', '"events"') + ']';
+
+    mainEvent = document.querySelector('#mainEvent').value;
+
+    if (!mainEvent) {
+      alert('Укажите искомое событие!')
+      return
+    }
+
+    JOURNAL = JSON.parse(data);
+    if (!JOURNAL.length || JOURNAL.length <= 0) {
+      alert('Заполните данные!')
+      return
+    }
+
+
+    output.innerHTML = '<ul>'
+
+    // Считает все корреляции и отсеивает близкие к нулю
+    let arr = [];
+    for (let event of journalEvents(JOURNAL)) {
+      let correlation = phi(tableFor(event, JOURNAL));
+      arr.push({ event, correlation })
+    }
+
+    console.log(arr);
+
+    arr.sort((a, b) => {
+      if (a.correlation > b.correlation) {
+        return -1;
+      }
+      if (a.correlation < b.correlation) {
+        return 1;
+      }
+      return 0;
+    })
+
+    for (let entry of arr) {
+      output.innerHTML += `<li>${entry.event}: ${entry.correlation.toFixed(2)}</li>`
+    }
+
+    output.innerHTML += '</ul>'
+
+  });
+
+
+
+  function phi([n00, n01, n10, n11]) {
+    return (n11 * n00 - n10 * n01) /
+      Math.sqrt((n10 + n11) * (n00 + n01) * (n01 + n11) * (n00 + n10));
+
+  }
+
+  //Считает количество одноименных событий в журнале
+  function tableFor(event, journal) {
+    let table = [0, 0, 0, 0];
+    for (let i = 0; i < journal.length; i++) {
+      let entry = journal[i], index = 0;
+      if (entry.events.includes(event)) index += 1;
+      if (entry.events.includes(mainEvent)) index += 2;
+      table[index] += 1;
+    }
+    return table;
+  }
+
+
+  //Ищем все типы событий, чтобы потом найти все корреляции. 
+  function journalEvents(journal) {
+    let events = [];
+    for (let entry of journal) {
+      for (let event of entry.events) {
+        if (!events.includes(event) && event !== mainEvent) {
+          events.push(event);
+        }
+      }
+    }
+    return events;
+  }
+
 })();
