@@ -41,6 +41,21 @@
             </div>
         </section> -->
 
+
+     <section class="idia b-26">
+            <h3 class='title'>Вешаем и удаляем css-классы для анимации по клику</h3>
+            <div class="example">
+                <pre>
+const block = document.querySelector('.block');
+block.onclick = () => {
+    block.classList.add('animated');
+    block.onanimationend = () => {
+        block.classList.remove('animated');
+    };
+};</pre>
+            </div>
+        </section>
+
     <section class="idia b-25">
         <h3 class='title'>Корреляция (фи-коэффицент)</h3>
         <div class="example">
