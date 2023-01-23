@@ -109,7 +109,7 @@ section {
 }
 
 .open {
-    padding-top: 20px;
+    padding: 20px;
     height: auto;
 }
 
@@ -1316,4 +1316,47 @@ section {
     justify-content: center;
     align-items: center;
     padding: 10px;
+}
+
+
+.b-27 .example  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.b-27 .list {
+    width: 300px;
+    min-height: 46px;
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+}
+                    
+.b-27 .title_block {
+    border: 1px solid #333;
+    padding: 10px;
+    position: relative;
+    z-index: 10;
+    background-color: #eee;
+    cursor: pointer;
+}
+                    
+.b-27 .title_block h4 {
+    margin: 0;
+}
+
+.b-27 .content {
+    padding: 10px;
+    border: 1px solid red;
+    border-top: none;
+    margin: 0;
+    margin-top: -100%;
+    transition: 1s;
+    position: relative;
+    z-index: 1;
+}
+              
+.b-27 .show {
+    margin-top: 0;
 }

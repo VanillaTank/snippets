@@ -613,3 +613,10 @@ function resize_photo() {
   }
 
 })();
+
+// Выпадающий список
+(function() {
+    document.querySelector('.b-27 .title_block').addEventListener('click', () => {
+        document.querySelector('.b-27 .content').classList.toggle('show');
+    })
+})();
