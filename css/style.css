@@ -118,6 +118,14 @@ section {
     margin-bottom: 20px;
 }
 
+.font-14 {
+    font-size: 14px;
+}
+
+.font-w-600 {
+    font-weight: 600;
+}
+
 /* Ползающее подчеркивание */
 .flexContainer {
     display: flex;
@@ -1319,7 +1327,7 @@ section {
 }
 
 
-.b-27 .example  {
+.b-27 .example {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1332,7 +1340,7 @@ section {
     position: relative;
     z-index: 10;
 }
-                    
+
 .b-27 .title_block {
     border: 1px solid #333;
     padding: 10px;
@@ -1341,7 +1349,7 @@ section {
     background-color: #eee;
     cursor: pointer;
 }
-                    
+
 .b-27 .title_block h4 {
     margin: 0;
 }
@@ -1356,7 +1364,29 @@ section {
     position: relative;
     z-index: 1;
 }
-              
+
 .b-27 .show {
     margin-top: 0;
+}
+
+/* Color picker */
+.b-28 .example {
+    display: flex;
+    justify-content: center;
+}
+
+.b-28 .result {
+    margin-bottom: 20px;
+    width: 600px;
+    padding: 15px;
+    margin-right: 30px;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.b-28 #canvas-b-28 {
+    border: 1px solid #000000;
+    clip-path: path('M9.5 91L1.5 95H1V105.5L10 109.5V120.5L19 124.5V135.5L28 139.5V150.5L37 154.5V165.5L46 169.5V180.5L55 185.5V195.5L63 199.5H66L72 195.5H74L81 199.5H84L90 195.5H92L99 199.5H102L108 195.5H110L117 199.5H120L126 195.5H128L135 199.5H138L144 195.5H146L153 199.5H156L162 195.5H164L171 199.5H174L181 195.5V185.5L190 180.5V170.5L199 165.5V155.5L208 150.5V140.5L217 135.5V125.5L226 120.5V110.5L235 105.5V94.5L226 89.5V79.5L217 74.5V64.5L208 59.5V49.5L199 44.5V34.5L190 30.5V19.5L181 15.5V4.5L173.5 1H171L164.5 4.5H162.5L156 1H153.5L146.5 4.5H144.5L137.5 1H135.5L129.5 4.5H127L119.5 1H117.5L111 4.5H109.5L101.5 1H99L92.5 4.5H90.5L84 1H81L74.5 4.5H72.5L65.5 1H63L55 5V15.5L46 19.5V30.5L37 35V45.5L28 49.5V60.5L18.5 65V76L9.5 79.5V91Z');
 }

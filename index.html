@@ -41,26 +41,96 @@
             </div>
         </section> -->
 
-
-        <section class="idia b-27">
-            <h3 class='title'>Выпадающий список</h3>
-            <div class="example">
-                <div class="list">
-                    <div class="title_block">
-                        <h4>Заголовок</h4>
-                    </div>
-                    <ul class="content">
-                        <li>Контент 1</li>
-                        <li>Контент 2</li>
-                        <li>Контент 3</li>
-                    </ul>
+    <section class="idia b-28">
+        <h3 class='title'>Color picker</h3>
+        <div class="example">
+            <div>
+                <div class="result">
+                    <span class="font-w-600">Нажми на цвет в палитре и я окрашусь в него.</span><br>
+                    <span class="font-14">Браузер сам по себе не видит цвет пикселя в месте клика, но canvas так может.Еще одна фишка -
+                        я обрезала canvas с помощью clip-path, иначе при клике на пустую часть получался черный результат. Path набивала в фигме: закинула картинку, взяла ручку и
+                        обвела. Обводи по внутреннему краю рисунка! Результат (очертания фигуры) сохранила как svg и скопировала d из path. Mожно сделать импорт path из файла, но я не разбиралась как.</span>
                 </div>
             </div>
-            <div class="description">
-                <div class="border">
-                    <h4 class="how-title btn-toggle">CSS</h4>
-                    <div class="drop-body">
-                        <pre>
+            <div><canvas id="canvas-b-28"></canvas></div>
+        </div>
+        <div class="description">
+            <div class="border">
+                <h4 class="how-title btn-toggle">HTML</h4>
+                <div class="drop-body">
+                    <pre>
+&#60;div class="result">&#60;/div>
+&#60;canvas id="canvas">&#60;/canvas></pre>
+                </div>
+            </div>
+            <div class="border">
+                <h4 class="how-title btn-toggle">CSS</h4>
+                <div class="drop-body">
+                    <pre>
+.result {
+    margin-bottom: 20px;
+    width: 600px;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+}                                
+#canvas {
+    border: 1px solid #000000;
+    clip-path: path('M9.5 91L1.5 95H1V105.5L10 109.5V120.5L19 124.5V135.5L28 139.5V150.5L37 154.5V165.5L46 169.5V180.5L55 185.5V195.5L63 199.5H66L72 195.5H74L81 199.5H84L90 195.5H92L99 199.5H102L108 195.5H110L117 199.5H120L126 195.5H128L135 199.5H138L144 195.5H146L153 199.5H156L162 195.5H164L171 199.5H174L181 195.5V185.5L190 180.5V170.5L199 165.5V155.5L208 150.5V140.5L217 135.5V125.5L226 120.5V110.5L235 105.5V94.5L226 89.5V79.5L217 74.5V64.5L208 59.5V49.5L199 44.5V34.5L190 30.5V19.5L181 15.5V4.5L173.5 1H171L164.5 4.5H162.5L156 1H153.5L146.5 4.5H144.5L137.5 1H135.5L129.5 4.5H127L119.5 1H117.5L111 4.5H109.5L101.5 1H99L92.5 4.5H90.5L84 1H81L74.5 4.5H72.5L65.5 1H63L55 5V15.5L46 19.5V30.5L37 35V45.5L28 49.5V60.5L18.5 65V76L9.5 79.5V91Z');
+}</pre>
+                </div>
+            </div>
+            <div class="border">
+                <h4 class="how-title btn-toggle">JS</h4>
+                <div class="drop-body">
+                    <pre>
+const canvas = document.querySelector('#canvas');
+const result = document.querySelector('.result');
+
+const w = 234;  // размеры картинки палитры
+const h = 199;  // размеры картинки палитры
+canvas.width = w;
+canvas.height = h;
+const ctx = canvas.getContext('2d');
+
+const image = new Image();
+image.src = './palitra.png';
+image.onload = function () {
+    ctx.drawImage(image, 0, 0, image.width, image.height);
+}
+
+canvas.onclick = function (e) {
+    const x = e.offsetX;
+    const y = e.offsetY;
+    const pixel = ctx.getImageData(x, y, 1, 1).data;
+    const pixelColor = "rgb(" + pixel[0] + ", " + pixel[1] + ", " + pixel[2] + ")";
+    // Можно сделать с прозрачностью за счет pixel[3]
+    // const pixelColor = "rgba(" + pixel[0] + ", " + pixel[1] + ", " + pixel[2] + ", " + pixel[3] ")";
+    result.style.backgroundColor = pixelColor;
+}</pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="idia b-27">
+        <h3 class='title'>Выпадающий список</h3>
+        <div class="example">
+            <div class="list">
+                <div class="title_block">
+                    <h4>Заголовок</h4>
+                </div>
+                <ul class="content">
+                    <li>Контент 1</li>
+                    <li>Контент 2</li>
+                    <li>Контент 3</li>
+                </ul>
+            </div>
+        </div>
+        <div class="description">
+            <div class="border">
+                <h4 class="how-title btn-toggle">CSS</h4>
+                <div class="drop-body">
+                    <pre>
 .list {
     width: 300px;
     min-height: 46px;
@@ -92,25 +162,25 @@
 }
               
 .show { margin-top: 0; }</pre>
-                    </div>
                 </div>
-                <div class="border">
-                    <h4 class="how-title btn-toggle">JS</h4>
-                    <div class="drop-body">
-                        <pre>
+            </div>
+            <div class="border">
+                <h4 class="how-title btn-toggle">JS</h4>
+                <div class="drop-body">
+                    <pre>
 document.querySelector('.title_block').addEventListener('click', () => {
     document.querySelector('.content').classList.toggle('show');
 })</pre>
-                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
 
-     <section class="idia b-26">
-            <h3 class='title'>Вешаем и удаляем css-классы для анимации по клику</h3>
-            <div class="example">
-                <pre>
+    <section class="idia b-26">
+        <h3 class='title'>Вешаем и удаляем css-классы для анимации по клику</h3>
+        <div class="example">
+            <pre>
 const block = document.querySelector('.block');
 block.onclick = () => {
     block.classList.add('animated');
@@ -118,8 +188,8 @@ block.onclick = () => {
         block.classList.remove('animated');
     };
 };</pre>
-            </div>
-        </section>
+        </div>
+    </section>
 
     <section class="idia b-25">
         <h3 class='title'>Корреляция (фи-коэффицент)</h3>
@@ -135,13 +205,13 @@ block.onclick = () => {
                             что переменные однозначно связаны, но противоположны - когда одна истинна, то вторая ложна.
                         </p>
                         <p>В верхний инпут нужно ввести название события, корреляцию с которым мы рассматриваем.
-                           В нижний - все наблюдения. Например, мы ищем корреляцию "работы" и поедания арахисовой
-                           пасты. Тогда вверх мы пишем "work", а вниз что-то вроде</br>
-                           { events: ["brushed teeth","peanuts", "exercise", "work"] },</br>
-{ events: ["spaghetti", "brushed teeth", "television", "work"] },</br>
-{ events: ["pizza", "cycling", "weekend"] }
+                            В нижний - все наблюдения. Например, мы ищем корреляцию "работы" и поедания арахисовой
+                            пасты. Тогда вверх мы пишем "work", а вниз что-то вроде</br>
+                            { events: ["brushed teeth","peanuts", "exercise", "work"] },</br>
+                            { events: ["spaghetti", "brushed teeth", "television", "work"] },</br>
+                            { events: ["pizza", "cycling", "weekend"] }
                         </p>
-                    </br>
+                        </br>
                         <p>
                             И нажать на РАССЧИТАТЬ
                         </p>
